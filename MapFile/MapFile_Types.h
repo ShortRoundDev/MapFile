@@ -44,7 +44,6 @@ struct MF_Entity
 
     size_t totalBrushes;
     MF_Brush* brushes;
-
 };
 
 struct MF_Map
