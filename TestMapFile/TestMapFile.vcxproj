@@ -163,6 +163,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TestMapFile_List.cpp" />
+    <ClCompile Include="TestMapFile_Parse.cpp" />
     <ClCompile Include="TestMapFile_System.cpp" />
   </ItemGroup>
   <ItemGroup>
