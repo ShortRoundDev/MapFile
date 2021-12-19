@@ -12,7 +12,7 @@ MapFile.dll is a Windows library for parsing through .map files created by CSG e
 
 This
 
-```json
+```js
 // Game: Generic
 // Format: Standard
 // entity 0
