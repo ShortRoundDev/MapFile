@@ -25,8 +25,13 @@
 var NAVTREE =
 [
   [ "MapFile.dll", "index.html", [
-    [ "Introduction", "index.html#intro_sec", null ],
-    [ "Installation", "index.html#intallation_sec", null ],
+    [ "What is this", "index.html#intro_sec", null ],
+    [ "What's the use case?", "index.html#use_sec", null ],
+    [ "What does a .map file look like", "index.html#map_sec", null ],
+    [ "Installation", "index.html#installation_sec", null ],
+    [ "Usage", "index.html#usage_sec", null ],
+    [ "Roadmap / What's next", "index.html#roadmap_sec", null ],
+    [ "FAQ", "index.html#faq_sec", null ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
