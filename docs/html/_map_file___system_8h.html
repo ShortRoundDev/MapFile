@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('_map_file___system_8h.html',''); initR
 <p>Contains all the functions for allocating memory, as well as raising errors.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="framework_8h_source.html">framework.h</a>&quot;</code><br />
-<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
 </div>
 <p><a href="_map_file___system_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -124,9 +124,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map
 <tr class="memitem:a325b983d266546261d583e62bd4aab65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___system_8h.html#a325b983d266546261d583e62bd4aab65">MF_SetFree</a> (void(*freeFunc)(size_t))</td></tr>
 <tr class="memdesc:a325b983d266546261d583e62bd4aab65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a global deallocator function. MF_Init defaults this to free.  <a href="_map_file___system_8h.html#a325b983d266546261d583e62bd4aab65">More...</a><br /></td></tr>
 <tr class="separator:a325b983d266546261d583e62bd4aab65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a068a01cc81a756d50ff45625c22fca4f"><td class="memItemLeft" align="right" valign="top">PRIVATE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___system_8h.html#a068a01cc81a756d50ff45625c22fca4f">MF_Raise</a> (uint32_t err, const char *message)</td></tr>
-<tr class="memdesc:a068a01cc81a756d50ff45625c22fca4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets MF_Err to err and MF_ErrMessage to message.  <a href="_map_file___system_8h.html#a068a01cc81a756d50ff45625c22fca4f">More...</a><br /></td></tr>
-<tr class="separator:a068a01cc81a756d50ff45625c22fca4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a287b343fead1a41397fb30741f599922"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___system_8h.html#a287b343fead1a41397fb30741f599922">MF_Raise</a> (uint32_t err, const char *message)</td></tr>
+<tr class="memdesc:a287b343fead1a41397fb30741f599922"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets MF_Err to err and MF_ErrMessage to message.  <a href="_map_file___system_8h.html#a287b343fead1a41397fb30741f599922">More...</a><br /></td></tr>
+<tr class="separator:a287b343fead1a41397fb30741f599922"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50fd6e6fcb546db3388ed10c9f3b5034"><td class="memItemLeft" align="right" valign="top"><a id="a50fd6e6fcb546db3388ed10c9f3b5034"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___system_8h.html#a50fd6e6fcb546db3388ed10c9f3b5034">MF_ResetErr</a> ()</td></tr>
 <tr class="memdesc:a50fd6e6fcb546db3388ed10c9f3b5034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets MapFile Error code to 0 and the MapFile Error message to an empty string. This is called at the top of MF_Parse. This should be called after an error is handled in MF_Parse if execution should continue. <br /></td></tr>
@@ -204,14 +204,14 @@ void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_m
 
 </div>
 </div>
-<a id="a068a01cc81a756d50ff45625c22fca4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a068a01cc81a756d50ff45625c22fca4f">&#9670;&nbsp;</a></span>MF_Raise()</h2>
+<a id="a287b343fead1a41397fb30741f599922"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a287b343fead1a41397fb30741f599922">&#9670;&nbsp;</a></span>MF_Raise()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">PRIVATE void MF_Raise </td>
+          <td class="memname">void MF_Raise </td>
           <td>(</td>
           <td class="paramtype">uint32_t&#160;</td>
           <td class="paramname"><em>err</em>, </td>
