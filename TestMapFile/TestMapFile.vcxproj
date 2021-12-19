@@ -164,7 +164,6 @@
     </ClCompile>
     <ClCompile Include="TestMapFile_List.cpp" />
     <ClCompile Include="TestMapFile_Parse.cpp" />
-    <ClCompile Include="TestMapFile_System.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -173,6 +172,9 @@
     <ProjectReference Include="..\MapFile\MapFile.vcxproj">
       <Project>{6b4f20be-f274-4480-8fa1-776908921cab}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\Boxes.map" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

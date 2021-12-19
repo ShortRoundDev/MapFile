@@ -2,7 +2,8 @@
 
 #include <regex>
 
-MF_Lexeme* MF_Lex(_In_    const   char*   string)
+_Success_(return)
+MF_Lexeme* MF_Lex(_In_ const char* string)
 {
     MF_Lexeme* list = NULL;
     MF_Lexeme* cursor = NULL;
@@ -47,10 +48,10 @@ MF_Lexeme* MF_Lex(_In_    const   char*   string)
         }
 
         if (size == 0) {
-            printf("error");
+            MF_Raise(MF_LEX_UNREC_STR_CODE, MF_LEX_UNREC_STR_MSG);
+            MF_DestroyLexemeList(list);
             return NULL;
         }
-
     append:
         if (list == NULL) {
             list = MF_NewLexeme(token, size);
@@ -65,6 +66,7 @@ MF_Lexeme* MF_Lex(_In_    const   char*   string)
     return list;
 }
 
+_Success_(return)
 bool MF_LexIsMapFileSyntax(char c)
 {
     return
@@ -75,6 +77,7 @@ bool MF_LexIsMapFileSyntax(char c)
         c == '\n';
 }
 
+_Success_(return)
 bool MF_LexIsWhitespace(char c)
 {
     return
@@ -113,6 +116,7 @@ size_t MF_LexString(_In_ char* string)
     return size + 1; // + 1 for the end "
 }
 
+_Success_(return)
 size_t MF_LexNumber(_In_ char* string)
 {
     size_t size = 0;
@@ -123,11 +127,13 @@ size_t MF_LexNumber(_In_ char* string)
     return size;
 }
 
+_Success_(return)
 bool MF_LexIsNumber(char c)
 {
     return (c >= '0' && c <= '9') || c == '.' || c == '-';
 }
 
+_Success_(return)
 size_t MF_LexComment(_In_ char* string)
 {
     if (string[0] != '/' || string[1] != '/') {
@@ -135,7 +141,7 @@ size_t MF_LexComment(_In_ char* string)
     }
     size_t t = 2;
     string += 2;
-    while (*string != '\n') {
+    while (*string != '\n' && *string != '\0') {
         t++;
         string++;
     }
@@ -145,8 +151,8 @@ size_t MF_LexComment(_In_ char* string)
 _Success_(return)
 size_t MF_LexWhitespacePaddedString(_In_ char* string)
 {
-    size_t t = 1;
-    while (!MF_LexIsWhitespace(*string)) {
+    size_t t = 0;
+    while (!MF_LexIsWhitespace(*string) && *string != '\n' && *string != '\0') {
         t++;
         string++;
     }

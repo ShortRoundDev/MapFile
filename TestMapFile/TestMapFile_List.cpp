@@ -10,67 +10,7 @@ namespace TestMapFile
 	TEST_CLASS(TestMapFile_List)
 	{
 	public:
-		TEST_METHOD(Test_MF_NewLexeme)
-		{
-			MF_Init();
-
-			const char text[] = "Hello world!";
-			MF_Lexeme* node = MF_NewLexeme(text, strlen(text));
-			Assert::AreEqual(text, node->lexeme);
-			Assert::IsNull(node->next);
-			Assert::AreEqual((char)0, (char)(*(node->lexeme + strlen(text)))); // null terminated
-		}
-
-		TEST_METHOD(Test_MF_AttachLexeme)
-		{
-			MF_Init();
-
-			const char text[] = "Hello world!";
-			MF_Lexeme* node = MF_NewLexeme(text, strlen(text));
-
-			//New is constructed correctly
-			Assert::AreEqual(text, node->lexeme);
-			Assert::IsNull(node->next);
-			Assert::AreEqual((char)0, (char)(*(node->lexeme + strlen(text)))); // null terminated
-
-			const char foo[] = "John Romero";
-
-			MF_Lexeme* next = MF_AttachLexeme(node, foo, strlen(foo));
-
-			//Next is constructed correctly
-			Assert::IsNull(next->next);
-			Assert::AreEqual(next->lexeme, foo);
-			Assert::AreEqual((char)0, (char)(*(next->lexeme + strlen(foo)))); // null terminated
-
-			//Head is attached correctly
-			Assert::IsNotNull(node->next);
-			Assert::AreEqual((uint64_t)node->next, (uint64_t)next); // compare addresses as longs
-			//Head is uncorrupted
-			Assert::AreEqual(node->lexeme, text);
-		}
-
-		TEST_METHOD(Test_MF_DestroyLexemeList)
-		{
-			MF_Init();
-
-			const char text[] = "Hello world";
-			MF_Lexeme* head = MF_NewLexeme(text, strlen(text));
-
-			const char node1text[] = "John Carmack";
-			MF_Lexeme* node1 = MF_AttachLexeme(head, node1text, strlen(node1text));
-
-			const char node2text[] = "John Romero";
-			MF_Lexeme* node2 = MF_AttachLexeme(head, node2text, strlen(node2text));
-			
-			const char node3text[] = "Tom Hall";
-			MF_Lexeme* node3 = MF_AttachLexeme(head, node3text, strlen(node3text));
-
-			MF_DestroyLexemeList(head);
-
-			//todo: write unit test for free?
-		}
-
-		TEST_METHOD(Test_MF_Lex)
+		TEST_METHOD(OK)
 		{
 			MF_Init();
 
@@ -108,11 +48,15 @@ namespace TestMapFile
 				"}\n"
 			);
 			MF_Lexeme* node = lexList;
-			while (node != NULL) {
-				printf("%s\n", node->lexeme);
+			Assert::AreEqual( "// Game: Generic", node->lexeme); // 0
+			node = node->next;
+			Assert::AreEqual("\n", node->lexeme); // 1
+
+			// Pick a random entry
+			for (int i = 0; i < 13; i++) {
 				node = node->next;
 			}
-			Assert::IsTrue(true);
+			Assert::AreEqual("// brush 0", node->lexeme);
 		}
 	};
 }

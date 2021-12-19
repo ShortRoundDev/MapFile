@@ -9,9 +9,17 @@ struct MF_TextureParameters
     float scaleY;
 };
 
-struct MF_Vertex
+union MF_Vertex
 {
-    float vertices[4];
+    // I think this is UB in C, but not C++!
+    struct
+    {
+        float x;
+        float y;
+        float z;
+        float w;
+    };
+    float comp[4]; // components
 };
 
 struct MF_Face
