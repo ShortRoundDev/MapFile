@@ -5,10 +5,15 @@
 #pragma once
 
 #include "framework.h"
-#include <cstdint>
 
-extern thread_local uint32_t MF_Err;
-extern thread_local char MF_ErrMessage[1024];
+#ifdef __cplusplus
+#include <cstdint>
+#else
+#include <stdint.h>
+#endif
+
+extern THREAD_LOCAL uint32_t MF_Err;
+extern THREAD_LOCAL char MF_ErrMessage[1024];
 
 /** \brief   Initializes MapFile.dll. Sets the global allocator to malloc and the global deallocator to free */
 DLL void MF_Init();
@@ -17,28 +22,28 @@ DLL void MF_Init();
 /**  \brief  The function pointer type for an allocator. Takes in a single size_t argument,
  *           but the implementation may be decided by the developer (calloc, malloc, HeapAlloc, etc.)
  */
-typedef void* (*MF_AllocatorFunc)(size_t size);
+typedef void* (*MF_AllocatorFunc)(size_t);
 
 /** \brief   The function pointer type for a deallocator. Takes in a single size_t argument,
  *           but the implementation may be decided by the developer (zero before free, etc.)
  */
-typedef void (*MF_FreeFunc)(void* memory);
+typedef void (*MF_FreeFunc)(void*);
 
 /** \brief   The global allocator */
-extern MF_AllocatorFunc MF_Alloc;
+extern void* (*MF_Alloc)(size_t);
 
 /** \brief   The global deallocator */
-extern MF_FreeFunc MF_Free;
+extern void (*MF_Free)(void*);
 
 /** \brief                 Sets a global allocator function. MF_Init defaults this to malloc
  *  \param[In] allocFunc   The function to use as the global allocator
  */
-DLL void MF_SetAllocator(MF_AllocatorFunc allocFunc);
+DLL void MF_SetAllocator(void* (*allocFunc)(void*));
 
 /** \brief                 Set a global deallocator function. MF_Init defaults this to free
  *  \param[In] freeFunc    The function to use as the global deallocator
  */
-DLL void MF_SetFree(MF_FreeFunc freeFunc);
+DLL void MF_SetFree(void (*freeFunc)(size_t));
 #pragma endregion
 
 #pragma region Error
@@ -46,7 +51,7 @@ DLL void MF_SetFree(MF_FreeFunc freeFunc);
  *  \param[In] err      The error code
  *  \param[In] message  The error message
  */
-void MF_Raise(uint32_t err, const char* message);
+PRIVATE void MF_Raise(uint32_t err, const char* message);
 
 /** \brief   Resets MapFile Error code to 0 and the MapFile Error message to an empty string.
  *           This is called at the top of MF_Parse. This should be called after an error is

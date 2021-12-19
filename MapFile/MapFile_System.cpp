@@ -4,8 +4,8 @@
 MF_AllocatorFunc MF_Alloc = NULL;
 MF_FreeFunc MF_Free = NULL;
 
-thread_local uint32_t MF_Err = 0;
-thread_local char MF_ErrMessage[1024] = { 0 };
+THREAD_LOCAL uint32_t MF_Err = 0;
+THREAD_LOCAL char MF_ErrMessage[1024] = { 0 };
 
 void MF_Init()
 {

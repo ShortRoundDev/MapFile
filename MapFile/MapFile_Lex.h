@@ -8,16 +8,20 @@
 #include "framework.h"
 #include "MapFile_List.h"
 
-constexpr uint32_t MF_LEX_ERR = 0x01000000;
-constexpr uint32_t MF_LEX_UNREC_STR_CODE = MF_LEX_ERR | 0x01;
-constexpr char MF_LEX_UNREC_STR_MSG[] = "Unrecognized token in string!";
+#ifdef __cplusplus
+CONSTEXPR uint32_t MF_LEX_ERR = 0x01000000;
+#else
+#define MF_LEX_ERR (0x01000000)
+#endif
+CONSTEXPR uint32_t MF_LEX_UNREC_STR_CODE = MF_LEX_ERR | 0x01;
+CONSTEXPR char MF_LEX_UNREC_STR_MSG[] = "Unrecognized token in string!";
 
 /** \brief      Creates a linked list of uncategorized lexemes from the text input
  *  \param[In]  The mapfile text input to lex
  *  \return     A pointer to the linked list of lexemes
  */
 _Success_(return)
-DLL MF_Lexeme* MF_Lex(_In_ const char* string);
+DLL struct MF_Lexeme* MF_Lex(_In_ const char* string);
 
 /** \brief      If the input string points to the start of a string of the format
  *              "string"
@@ -26,7 +30,7 @@ DLL MF_Lexeme* MF_Lex(_In_ const char* string);
  *  \return     The size of the lexeme
  */
 _Success_(return)
-size_t MF_LexString(_In_ char* string);
+PRIVATE size_t MF_LexString(_In_ char* string);
 
 
 /** \brief              If the input string points to the start of a number string
@@ -36,7 +40,7 @@ size_t MF_LexString(_In_ char* string);
  *  \return             The size of the lexeme
  */
 _Success_(return)
-size_t MF_LexNumber(_In_ char* string);
+PRIVATE size_t MF_LexNumber(_In_ char* string);
 
 /** \brief             If the input string points to the start of a comment string of the
  *                     format //comment (ending with either a newline or null terminator), then
@@ -45,7 +49,7 @@ size_t MF_LexNumber(_In_ char* string);
  *  \return            The size of the lexeme
  */
 _Success_(return)
-size_t MF_LexComment(_In_ char* string);
+PRIVATE size_t MF_LexComment(_In_ char* string);
 
 /** \brief             Returns the length of the lexeme ending with whitespace or a null terminator.
  *                     All characters are matched up until whitespace, a newline, or the null terminator, so
@@ -55,25 +59,25 @@ size_t MF_LexComment(_In_ char* string);
  *  \return            The size of the lexeme
  */
 _Success_(return)
-size_t MF_LexWhitespacePaddedString(_In_ char* string);
+PRIVATE size_t MF_LexWhitespacePaddedString(_In_ char* string);
 
 /** \brief             Returns true if the character is either { } ( ) or a newline (\n). Else, returns false
  *  \param[In] c       The character to check
  *  \return            Whether the character is a map file syntax character
  */
 _Success_(return)
-bool MF_LexIsMapFileSyntax(char c);
+PRIVATE BOOL MF_LexIsMapFileSyntax(char c);
 
 /** \brief             Returns true if the character is either a space or a tab
  *  \param[In] c       The character to check
  *  \return            Whether the character is whitespace
  */
 _Success_(return)
-bool MF_LexIsWhitespace(char c);
+PRIVATE BOOL MF_LexIsWhitespace(char c);
 
 /** \brief             Returns true if the character is a digit, a period (.) or a minus (-)
  *  \param[In] c       The character to check
  *  \return            Whether the character is a valid part of a number string
  */
 _Success_(return)
-bool MF_LexIsNumber(char c);
+PRIVATE BOOL MF_LexIsNumber(char c);

@@ -5,12 +5,26 @@
 #pragma once
 
 #ifdef MAPFILE_EXPORTS
-	#define DLL __declspec(dllexport)
+	#define DLL extern "C" __declspec(dllexport)
 	#define LIB_GLOBAL
 #else
-	#define DLL __declspec(dllimport)
+	#ifdef __cplusplus
+		#define DLL extern "C" __declspec(dllimport)
+	#else
+		#define DLL __declspec(dllimport)
+	#endif
 	#define LIB_GLOBAL extern
 #endif
+
+#ifdef __cplusplus
+	#define CONSTEXPR constexpr
+	#define PRIVATE extern "C"
+#else
+	#define CONSTEXPR const
+	#define PRIVATE
+#endif
+
+#define THREAD_LOCAL __declspec( thread )
 
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>

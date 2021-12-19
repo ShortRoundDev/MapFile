@@ -8,7 +8,7 @@
 #define WHITE_OR_COMMENT(s) ((s)[0] == '\n' || ((s)[0] == '/' && (s)[1] == '/'))
 
 _Success_(return)
-bool MF_Parse(_In_ char* text, _Out_ MF_Map* map)
+BOOL MF_Parse(_In_ char* text, _Out_ MF_Map* map)
 {
 	MF_ResetErr();
 	MF_Lexeme* lexemes = MF_Lex(text);
@@ -18,14 +18,15 @@ bool MF_Parse(_In_ char* text, _Out_ MF_Map* map)
 		return false;
 	}
 
+	MF_Lexeme* cursor = lexemes;
+
 	map->totalItems = MF_CountEntities(lexemes);
 	if (map->totalItems == 0) {
 		MF_Raise(MF_PARSE_NO_ENTS_CODE, MF_PARSE_NO_ENTS_MSG);
-		return false; // technically not false...
+		MF_DestroyLexemeList(lexemes);
+		return false;
 	}
 	map->items = (MF_Entity*) MF_Alloc(sizeof(MF_Entity) * map->totalItems);
-
-	MF_Lexeme* cursor = lexemes;
 	MF_Entity* entityCursor = map->items;
 	
 	while(cursor != NULL)
@@ -49,9 +50,8 @@ bool MF_Parse(_In_ char* text, _Out_ MF_Map* map)
 		}
 		cursor = cursor->next;
 	}
-
+	MF_DestroyLexemeList(lexemes);
 	if (MF_Err) {
-		MF_DestroyLexemeList(lexemes);
 		return false;
 	}
 	return true;
@@ -120,7 +120,7 @@ MF_Lexeme* MF_ParseKeyValuePair(_In_ MF_Lexeme* lexemes, _Out_ MF_KeyValuePair* 
 		return NULL;
 	}
 
-	int keyLength = strlen(lexemes->lexeme);
+	size_t keyLength = strlen(lexemes->lexeme);
 	char* key = (char*)MF_Alloc(keyLength - 1); // -2 for quote marks; +1 for null terminator
 	ZeroMemory(key, keyLength - 1);
 	memcpy(key, lexemes->lexeme + 1, keyLength - 2);
@@ -134,7 +134,7 @@ MF_Lexeme* MF_ParseKeyValuePair(_In_ MF_Lexeme* lexemes, _Out_ MF_KeyValuePair* 
 		return NULL;
 	}
 
-	int valueLength = strlen(lexemes->lexeme);
+	size_t valueLength = strlen(lexemes->lexeme);
 	char* value = (char*)MF_Alloc(valueLength - 1);
 	ZeroMemory(value, valueLength - 1);
 	memcpy(value, lexemes->lexeme + 1, valueLength - 2);
@@ -190,7 +190,7 @@ MF_Lexeme* MF_ParseFace(_In_ MF_Lexeme * lexemes, _Out_ MF_Face * face)
 		}
 	}
 
-	int texNameLength = strlen(cursor->lexeme);
+	size_t texNameLength = strlen(cursor->lexeme);
 	face->texture = (char*)MF_Alloc(texNameLength) + 1; // + 1 for NULL terminator
 	memset(face->texture, 0, texNameLength + 1);
 	memcpy(face->texture, cursor->lexeme, texNameLength);
@@ -218,7 +218,7 @@ MF_Lexeme* MF_ParseVertex(_In_ MF_Lexeme * lexemes, _Out_ MF_Vertex * vertex)
 		{
 			goto next;
 		}
-		vertex->comp[i++] = atof(cursor->lexeme);
+		vertex->comp[i++] = (float)atof(cursor->lexeme);
 
 	next:
 		cursor = cursor->next;
@@ -234,19 +234,19 @@ MF_Lexeme* MF_ParseVertex(_In_ MF_Lexeme * lexemes, _Out_ MF_Vertex * vertex)
 _Success_(return != NULL)
 MF_Lexeme* MF_ParseTextureParameters(_In_ MF_Lexeme * lexemes, _Out_ MF_TextureParameters * textureParameters)
 {
-	textureParameters->offsetX = atof(lexemes->lexeme);
+	textureParameters->offsetX = (float)atof(lexemes->lexeme);
 	lexemes = lexemes->next;
 
-	textureParameters->offsetY = atof(lexemes->lexeme);
+	textureParameters->offsetY = (float)atof(lexemes->lexeme);
 	lexemes = lexemes->next;
 
-	textureParameters->angle = atof(lexemes->lexeme);
+	textureParameters->angle = (float)atof(lexemes->lexeme);
 	lexemes = lexemes->next;
 
-	textureParameters->scaleX = atof(lexemes->lexeme);
+	textureParameters->scaleX = (float)atof(lexemes->lexeme);
 	lexemes = lexemes->next;
 
-	textureParameters->scaleY = atof(lexemes->lexeme);
+	textureParameters->scaleY = (float)atof(lexemes->lexeme);
 
 	return lexemes->next; //newline
 }
@@ -282,7 +282,7 @@ int MF_CountAttributes(_In_ MF_Lexeme* lexemes)
 	int total = 0;
 
 	MF_Lexeme* cursor = lexemes;
-	while (cursor != NULL && cursor->lexeme[0] != '{')
+	while (cursor != NULL && cursor->lexeme[0] != '{' && cursor->lexeme[0] != '}')
 	{
 		if (WHITE_OR_COMMENT(cursor->lexeme))
 		{

@@ -67,7 +67,7 @@ MF_Lexeme* MF_Lex(_In_ const char* string)
 }
 
 _Success_(return)
-bool MF_LexIsMapFileSyntax(char c)
+BOOL MF_LexIsMapFileSyntax(char c)
 {
     return
         c == '{' ||
@@ -78,7 +78,7 @@ bool MF_LexIsMapFileSyntax(char c)
 }
 
 _Success_(return)
-bool MF_LexIsWhitespace(char c)
+BOOL MF_LexIsWhitespace(char c)
 {
     return
         c == ' ' ||
@@ -128,7 +128,7 @@ size_t MF_LexNumber(_In_ char* string)
 }
 
 _Success_(return)
-bool MF_LexIsNumber(char c)
+BOOL MF_LexIsNumber(char c)
 {
     return (c >= '0' && c <= '9') || c == '.' || c == '-';
 }
