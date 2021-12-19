@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('_map_file___parse_8h.html',''); initRe
 
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -95,100 +96,104 @@ $(document).ready(function(){initNavTree('_map_file___parse_8h.html',''); initRe
 
 <p>Contains all the functions and error codes for parsing text and lexemes into MapFile structs.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="_map_file___system_8h_source.html">MapFile_System.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="framework_8h_source.html">framework.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_map_file___system_8h_source.html">MapFile_System.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_map_file___types_8h_source.html">MapFile_Types.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_map_file___list_8h_source.html">MapFile_List.h</a>&quot;</code><br />
 </div>
 <p><a href="_map_file___parse_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a0f7af63cd5a608667dbf4be299c36f93"><td class="memItemLeft" align="right" valign="top"><a id="a0f7af63cd5a608667dbf4be299c36f93"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_ERR</b>&#160;&#160;&#160;(0x02000000)</td></tr>
+<tr class="separator:a0f7af63cd5a608667dbf4be299c36f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8a989384cd172f8e9c1eb6128b397ddc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#a8a989384cd172f8e9c1eb6128b397ddc">MF_Parse</a> (char *text, <a class="el" href="struct_m_f___map.html">MF_Map</a> *map)</td></tr>
-<tr class="memdesc:a8a989384cd172f8e9c1eb6128b397ddc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the text of a mapfile into its relevant <a class="el" href="struct_m_f___map.html" title="The main map struct.">MF_Map</a> structs. This runs allocations every step of the way. If there is an error in parsing, this returns false and an error code is set. The developer can get error information with <a class="el" href="_map_file___system_8h.html#a995761fddf8c83209b127eec12fbb66d" title="Returns the current error code for MapFile.">MF_GetErrCode()</a> and <a class="el" href="_map_file___system_8h.html#aff44834d28567780c05603d671fc27e8" title="Copies the current MapFile error message to the provided buffer. The buffer must be 1024 bytes.">MF_GetErrMessage()</a>  <a href="_map_file___parse_8h.html#a8a989384cd172f8e9c1eb6128b397ddc">More...</a><br /></td></tr>
-<tr class="separator:a8a989384cd172f8e9c1eb6128b397ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64a54eb25275212755b208ffb26282cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#a64a54eb25275212755b208ffb26282cb">MF_ParseEntity</a> (<a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *lexemes, <a class="el" href="struct_m_f___entity.html">MF_Entity</a> *entity)</td></tr>
-<tr class="memdesc:a64a54eb25275212755b208ffb26282cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses an entity into the provided MF_Entity*.  <a href="_map_file___parse_8h.html#a64a54eb25275212755b208ffb26282cb">More...</a><br /></td></tr>
-<tr class="separator:a64a54eb25275212755b208ffb26282cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47035ed5d6f2f5dbc47d9a2deb76ff70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#a47035ed5d6f2f5dbc47d9a2deb76ff70">MF_ParseKeyValuePair</a> (<a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *lexemes, <a class="el" href="struct_m_f___key_value_pair.html">MF_KeyValuePair</a> *keyValuePair)</td></tr>
-<tr class="memdesc:a47035ed5d6f2f5dbc47d9a2deb76ff70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a key-value-pair from the entity attribute list into the provided MF_KeyValuePair*.  <a href="_map_file___parse_8h.html#a47035ed5d6f2f5dbc47d9a2deb76ff70">More...</a><br /></td></tr>
-<tr class="separator:a47035ed5d6f2f5dbc47d9a2deb76ff70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2eb3abf5c19cac7be46e97842f63af0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#a2eb3abf5c19cac7be46e97842f63af0e">MF_ParseBrush</a> (<a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *lexemes, <a class="el" href="struct_m_f___brush.html">MF_Brush</a> *brush)</td></tr>
-<tr class="memdesc:a2eb3abf5c19cac7be46e97842f63af0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a brush into the provided MF_Brush*.  <a href="_map_file___parse_8h.html#a2eb3abf5c19cac7be46e97842f63af0e">More...</a><br /></td></tr>
-<tr class="separator:a2eb3abf5c19cac7be46e97842f63af0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe3ab0cc138d4ebaae22be321e6811cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#abe3ab0cc138d4ebaae22be321e6811cf">MF_ParseFace</a> (<a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *lexemes, <a class="el" href="struct_m_f___face.html">MF_Face</a> *face)</td></tr>
-<tr class="memdesc:abe3ab0cc138d4ebaae22be321e6811cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a brush face into the provided MF_Face*.  <a href="_map_file___parse_8h.html#abe3ab0cc138d4ebaae22be321e6811cf">More...</a><br /></td></tr>
-<tr class="separator:abe3ab0cc138d4ebaae22be321e6811cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2973810d0d5b5e5708bfbe4daf563341"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#a2973810d0d5b5e5708bfbe4daf563341">MF_ParseVertex</a> (<a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *lexemes, <a class="el" href="union_m_f___vertex.html">MF_Vertex</a> *vertex)</td></tr>
-<tr class="memdesc:a2973810d0d5b5e5708bfbe4daf563341"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a face vertex into the provided MF_Vertex*.  <a href="_map_file___parse_8h.html#a2973810d0d5b5e5708bfbe4daf563341">More...</a><br /></td></tr>
-<tr class="separator:a2973810d0d5b5e5708bfbe4daf563341"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5180411fc9ac10738ea3fc8499c1cce6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#a5180411fc9ac10738ea3fc8499c1cce6">MF_ParseTextureParameters</a> (<a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *lexemes, <a class="el" href="struct_m_f___texture_parameters.html">MF_TextureParameters</a> *textureParameters)</td></tr>
-<tr class="memdesc:a5180411fc9ac10738ea3fc8499c1cce6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a set of texture parameters into the provided MF_TextureParameters*.  <a href="_map_file___parse_8h.html#a5180411fc9ac10738ea3fc8499c1cce6">More...</a><br /></td></tr>
-<tr class="separator:a5180411fc9ac10738ea3fc8499c1cce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7c95ab13e9c1c09692d44e49ecd9ab3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#ad7c95ab13e9c1c09692d44e49ecd9ab3">MF_CountEntities</a> (<a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *lexemes)</td></tr>
-<tr class="memdesc:ad7c95ab13e9c1c09692d44e49ecd9ab3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of top level open-close brackets starting at the input lexeme. Does not count nested brackets. This function is also good for counting the number of brushes inside a given entity.  <a href="_map_file___parse_8h.html#ad7c95ab13e9c1c09692d44e49ecd9ab3">More...</a><br /></td></tr>
-<tr class="separator:ad7c95ab13e9c1c09692d44e49ecd9ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6435c0264f690876942cc67f97e9a5c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#ab6435c0264f690876942cc67f97e9a5c">MF_CountAttributes</a> (<a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *lexemes)</td></tr>
-<tr class="memdesc:ab6435c0264f690876942cc67f97e9a5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of Key Value Pairs at the given hierarchy of the lexeme list. Halts when it encounters to first opening bracket {, or end of the list.  <a href="_map_file___parse_8h.html#ab6435c0264f690876942cc67f97e9a5c">More...</a><br /></td></tr>
-<tr class="separator:ab6435c0264f690876942cc67f97e9a5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a708ac292da869498d34aa4560f583d01"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#a708ac292da869498d34aa4560f583d01">MF_CountFaces</a> (<a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *lexemes)</td></tr>
-<tr class="memdesc:a708ac292da869498d34aa4560f583d01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of faces in a brush. Gets the number of opening parentheses ( that occur immediately after a newline character, stopping when an opening bracket { is reached, or end of list.  <a href="_map_file___parse_8h.html#a708ac292da869498d34aa4560f583d01">More...</a><br /></td></tr>
-<tr class="separator:a708ac292da869498d34aa4560f583d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25614040ca43b51ba248c43169799f82"><td class="memItemLeft" align="right" valign="top">BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#a25614040ca43b51ba248c43169799f82">MF_Parse</a> (char *text, struct <a class="el" href="struct_m_f___map.html">MF_Map</a> *map)</td></tr>
+<tr class="memdesc:a25614040ca43b51ba248c43169799f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the text of a mapfile into its relevant <a class="el" href="struct_m_f___map.html" title="The main map struct.">MF_Map</a> structs. This runs allocations every step of the way. If there is an error in parsing, this returns false and an error code is set. The developer can get error information with <a class="el" href="_map_file___system_8h.html#a995761fddf8c83209b127eec12fbb66d" title="Returns the current error code for MapFile.">MF_GetErrCode()</a> and <a class="el" href="_map_file___system_8h.html#aff44834d28567780c05603d671fc27e8" title="Copies the current MapFile error message to the provided buffer. The buffer must be 1024 bytes.">MF_GetErrMessage()</a>  <a href="_map_file___parse_8h.html#a25614040ca43b51ba248c43169799f82">More...</a><br /></td></tr>
+<tr class="separator:a25614040ca43b51ba248c43169799f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefd5d050349c50a33293e597d53b75b8"><td class="memItemLeft" align="right" valign="top">PRIVATE struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#aefd5d050349c50a33293e597d53b75b8">MF_ParseEntity</a> (struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *lexemes, struct <a class="el" href="struct_m_f___entity.html">MF_Entity</a> *entity)</td></tr>
+<tr class="memdesc:aefd5d050349c50a33293e597d53b75b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses an entity into the provided MF_Entity*.  <a href="_map_file___parse_8h.html#aefd5d050349c50a33293e597d53b75b8">More...</a><br /></td></tr>
+<tr class="separator:aefd5d050349c50a33293e597d53b75b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1755a5740e63caa7d12b02b5f95b8e82"><td class="memItemLeft" align="right" valign="top">PRIVATE struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#a1755a5740e63caa7d12b02b5f95b8e82">MF_ParseKeyValuePair</a> (struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *lexemes, struct <a class="el" href="struct_m_f___key_value_pair.html">MF_KeyValuePair</a> *keyValuePair)</td></tr>
+<tr class="memdesc:a1755a5740e63caa7d12b02b5f95b8e82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a key-value-pair from the entity attribute list into the provided MF_KeyValuePair*.  <a href="_map_file___parse_8h.html#a1755a5740e63caa7d12b02b5f95b8e82">More...</a><br /></td></tr>
+<tr class="separator:a1755a5740e63caa7d12b02b5f95b8e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae568fb42412a513f833f2ea64f2e36af"><td class="memItemLeft" align="right" valign="top">PRIVATE struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#ae568fb42412a513f833f2ea64f2e36af">MF_ParseBrush</a> (struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *lexemes, struct <a class="el" href="struct_m_f___brush.html">MF_Brush</a> *brush)</td></tr>
+<tr class="memdesc:ae568fb42412a513f833f2ea64f2e36af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a brush into the provided MF_Brush*.  <a href="_map_file___parse_8h.html#ae568fb42412a513f833f2ea64f2e36af">More...</a><br /></td></tr>
+<tr class="separator:ae568fb42412a513f833f2ea64f2e36af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc81c255e96ced025b0c0f0650653ef5"><td class="memItemLeft" align="right" valign="top">PRIVATE struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#acc81c255e96ced025b0c0f0650653ef5">MF_ParseFace</a> (struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *lexemes, struct <a class="el" href="struct_m_f___face.html">MF_Face</a> *face)</td></tr>
+<tr class="memdesc:acc81c255e96ced025b0c0f0650653ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a brush face into the provided MF_Face*.  <a href="_map_file___parse_8h.html#acc81c255e96ced025b0c0f0650653ef5">More...</a><br /></td></tr>
+<tr class="separator:acc81c255e96ced025b0c0f0650653ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec531bcd9027aa5df4064c8abff2378a"><td class="memItemLeft" align="right" valign="top">PRIVATE struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#aec531bcd9027aa5df4064c8abff2378a">MF_ParseVertex</a> (struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *lexemes, union <a class="el" href="union_m_f___vertex.html">MF_Vertex</a> *vertex)</td></tr>
+<tr class="memdesc:aec531bcd9027aa5df4064c8abff2378a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a face vertex into the provided MF_Vertex*.  <a href="_map_file___parse_8h.html#aec531bcd9027aa5df4064c8abff2378a">More...</a><br /></td></tr>
+<tr class="separator:aec531bcd9027aa5df4064c8abff2378a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5df1bf2db052a3aa1a6bb67324430d07"><td class="memItemLeft" align="right" valign="top">PRIVATE struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#a5df1bf2db052a3aa1a6bb67324430d07">MF_ParseTextureParameters</a> (struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *lexemes, struct <a class="el" href="struct_m_f___texture_parameters.html">MF_TextureParameters</a> *textureParameters)</td></tr>
+<tr class="memdesc:a5df1bf2db052a3aa1a6bb67324430d07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a set of texture parameters into the provided MF_TextureParameters*.  <a href="_map_file___parse_8h.html#a5df1bf2db052a3aa1a6bb67324430d07">More...</a><br /></td></tr>
+<tr class="separator:a5df1bf2db052a3aa1a6bb67324430d07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca0ba63192a2a119c5e8fb7a159b21f4"><td class="memItemLeft" align="right" valign="top">PRIVATE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#aca0ba63192a2a119c5e8fb7a159b21f4">MF_CountEntities</a> (struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *lexemes)</td></tr>
+<tr class="memdesc:aca0ba63192a2a119c5e8fb7a159b21f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of top level open-close brackets starting at the input lexeme. Does not count nested brackets. This function is also good for counting the number of brushes inside a given entity.  <a href="_map_file___parse_8h.html#aca0ba63192a2a119c5e8fb7a159b21f4">More...</a><br /></td></tr>
+<tr class="separator:aca0ba63192a2a119c5e8fb7a159b21f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1701a85c2350d32524c7c6e0828417c"><td class="memItemLeft" align="right" valign="top">PRIVATE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#ab1701a85c2350d32524c7c6e0828417c">MF_CountAttributes</a> (struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *lexemes)</td></tr>
+<tr class="memdesc:ab1701a85c2350d32524c7c6e0828417c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of Key Value Pairs at the given hierarchy of the lexeme list. Halts when it encounters to first opening bracket {, or end of the list.  <a href="_map_file___parse_8h.html#ab1701a85c2350d32524c7c6e0828417c">More...</a><br /></td></tr>
+<tr class="separator:ab1701a85c2350d32524c7c6e0828417c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ec1cbd798716bccc7eae48d7819fdce"><td class="memItemLeft" align="right" valign="top">PRIVATE int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___parse_8h.html#a1ec1cbd798716bccc7eae48d7819fdce">MF_CountFaces</a> (struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *lexemes)</td></tr>
+<tr class="memdesc:a1ec1cbd798716bccc7eae48d7819fdce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the number of faces in a brush. Gets the number of opening parentheses ( that occur immediately after a newline character, stopping when an opening bracket { is reached, or end of list.  <a href="_map_file___parse_8h.html#a1ec1cbd798716bccc7eae48d7819fdce">More...</a><br /></td></tr>
+<tr class="separator:a1ec1cbd798716bccc7eae48d7819fdce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ade45a8de71ba597e56d208ef2221919d"><td class="memItemLeft" align="right" valign="top"><a id="ade45a8de71ba597e56d208ef2221919d"></a>
-constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_ERR</b> = 0x02000000</td></tr>
-<tr class="separator:ade45a8de71ba597e56d208ef2221919d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad624332c0422b5a81f450d7c1c5c6324"><td class="memItemLeft" align="right" valign="top"><a id="ad624332c0422b5a81f450d7c1c5c6324"></a>
-constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_NO_ENTS_CODE</b> = MF_PARSE_ERR | 0x01</td></tr>
-<tr class="separator:ad624332c0422b5a81f450d7c1c5c6324"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a796ff01ca652115be4313b4737360a9f"><td class="memItemLeft" align="right" valign="top"><a id="a796ff01ca652115be4313b4737360a9f"></a>
-constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_NO_ENTS_MSG</b> [] = &quot;No entities in map file counted&quot;</td></tr>
-<tr class="separator:a796ff01ca652115be4313b4737360a9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9938029c89bf1e470b49f470974a927"><td class="memItemLeft" align="right" valign="top"><a id="ad9938029c89bf1e470b49f470974a927"></a>
-constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_ENT_NO_ATT_CODE</b> = MF_PARSE_ERR | 0x02</td></tr>
-<tr class="separator:ad9938029c89bf1e470b49f470974a927"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86700071f68f53662e14595b53bfdb66"><td class="memItemLeft" align="right" valign="top"><a id="a86700071f68f53662e14595b53bfdb66"></a>
-constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_ENT_NO_ATT_MSG</b> [] = &quot;No attributes found in an entity. Entities requires at least a classname&quot;</td></tr>
-<tr class="separator:a86700071f68f53662e14595b53bfdb66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69d83e1a6abe28c58e34f7041415808a"><td class="memItemLeft" align="right" valign="top"><a id="a69d83e1a6abe28c58e34f7041415808a"></a>
-constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MISALIGNED_ATT_CODE</b> = MF_PARSE_ERR | 0x03</td></tr>
-<tr class="separator:a69d83e1a6abe28c58e34f7041415808a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7030724c333e9cb0608479cc17e60d28"><td class="memItemLeft" align="right" valign="top"><a id="a7030724c333e9cb0608479cc17e60d28"></a>
-constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MISALIGNED_ATT_MSG</b> [] = &quot;Expected \&quot; while parsing attribute list&quot;</td></tr>
-<tr class="separator:a7030724c333e9cb0608479cc17e60d28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab43a8793f218c8609117e6e775c031b3"><td class="memItemLeft" align="right" valign="top"><a id="ab43a8793f218c8609117e6e775c031b3"></a>
-constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MISALIGNED_BRUSH_PAREN_CODE</b> = MF_PARSE_ERR | 0x04</td></tr>
-<tr class="separator:ab43a8793f218c8609117e6e775c031b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2ec414819df7dbbca4923858ca9b5b1"><td class="memItemLeft" align="right" valign="top"><a id="ad2ec414819df7dbbca4923858ca9b5b1"></a>
-constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MISALIGNED_BRUSH_PAREN_MSG</b> [] = &quot;Expected ( while parsing brush&quot;</td></tr>
-<tr class="separator:ad2ec414819df7dbbca4923858ca9b5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a567b318eccd3f11e1472b2deea9829"><td class="memItemLeft" align="right" valign="top"><a id="a3a567b318eccd3f11e1472b2deea9829"></a>
-constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_REACHED_END_CODE</b> = MF_PARSE_ERR | 0x05</td></tr>
-<tr class="separator:a3a567b318eccd3f11e1472b2deea9829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace772e410ff5238d893019f6946e4bca"><td class="memItemLeft" align="right" valign="top"><a id="ace772e410ff5238d893019f6946e4bca"></a>
-constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_REACHED_END_MSG</b> [] = &quot;Reached end of document while parsing&quot;</td></tr>
-<tr class="separator:ace772e410ff5238d893019f6946e4bca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10ce3bb1ee82a4175d885392dbde136a"><td class="memItemLeft" align="right" valign="top"><a id="a10ce3bb1ee82a4175d885392dbde136a"></a>
-constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MISALIGNED_ENT_CODE</b> = MF_PARSE_ERR | 0x06</td></tr>
-<tr class="separator:a10ce3bb1ee82a4175d885392dbde136a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaca2e3cc12b46f774d1f8e17ac06aa23"><td class="memItemLeft" align="right" valign="top"><a id="aaca2e3cc12b46f774d1f8e17ac06aa23"></a>
-constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MISALIGNED_ENT_MSG</b> [] = &quot;Expected { while parsing ent&quot;</td></tr>
-<tr class="separator:aaca2e3cc12b46f774d1f8e17ac06aa23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a205f75ec3ea1d7467578a74f724550da"><td class="memItemLeft" align="right" valign="top"><a id="a205f75ec3ea1d7467578a74f724550da"></a>
+CONSTEXPR uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_NO_ENTS_CODE</b> = MF_PARSE_ERR | 0x01</td></tr>
+<tr class="separator:a205f75ec3ea1d7467578a74f724550da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd8e1e872a62f26750c156029646d42e"><td class="memItemLeft" align="right" valign="top"><a id="afd8e1e872a62f26750c156029646d42e"></a>
+CONSTEXPR char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_NO_ENTS_MSG</b> [] = &quot;No entities in map file counted&quot;</td></tr>
+<tr class="separator:afd8e1e872a62f26750c156029646d42e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a339aa2c4b037fa235e1f827a4dc1921e"><td class="memItemLeft" align="right" valign="top"><a id="a339aa2c4b037fa235e1f827a4dc1921e"></a>
+CONSTEXPR uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_ENT_NO_ATT_CODE</b> = MF_PARSE_ERR | 0x02</td></tr>
+<tr class="separator:a339aa2c4b037fa235e1f827a4dc1921e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ebcae30b1ef1135455cf8b0cee20310"><td class="memItemLeft" align="right" valign="top"><a id="a1ebcae30b1ef1135455cf8b0cee20310"></a>
+CONSTEXPR char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_ENT_NO_ATT_MSG</b> [] = &quot;No attributes found in an entity. Entities requires at least a classname&quot;</td></tr>
+<tr class="separator:a1ebcae30b1ef1135455cf8b0cee20310"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4309feddbcd690187d5b0c874fbe81b1"><td class="memItemLeft" align="right" valign="top"><a id="a4309feddbcd690187d5b0c874fbe81b1"></a>
+CONSTEXPR uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MISALIGNED_ATT_CODE</b> = MF_PARSE_ERR | 0x03</td></tr>
+<tr class="separator:a4309feddbcd690187d5b0c874fbe81b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac992e3cb5a48acf459f59c5f22a88dfc"><td class="memItemLeft" align="right" valign="top"><a id="ac992e3cb5a48acf459f59c5f22a88dfc"></a>
+CONSTEXPR char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MISALIGNED_ATT_MSG</b> [] = &quot;Expected \&quot; while parsing attribute list&quot;</td></tr>
+<tr class="separator:ac992e3cb5a48acf459f59c5f22a88dfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57cc7e0afdbd499288cae28a5c61bfa2"><td class="memItemLeft" align="right" valign="top"><a id="a57cc7e0afdbd499288cae28a5c61bfa2"></a>
+CONSTEXPR uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MISALIGNED_BRUSH_PAREN_CODE</b> = MF_PARSE_ERR | 0x04</td></tr>
+<tr class="separator:a57cc7e0afdbd499288cae28a5c61bfa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99af8aa583e8522b969117fc14ed67b1"><td class="memItemLeft" align="right" valign="top"><a id="a99af8aa583e8522b969117fc14ed67b1"></a>
+CONSTEXPR char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MISALIGNED_BRUSH_PAREN_MSG</b> [] = &quot;Expected ( while parsing brush&quot;</td></tr>
+<tr class="separator:a99af8aa583e8522b969117fc14ed67b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa8d81d011087f0ef51a56b8990d393b"><td class="memItemLeft" align="right" valign="top"><a id="aaa8d81d011087f0ef51a56b8990d393b"></a>
+CONSTEXPR uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_REACHED_END_CODE</b> = MF_PARSE_ERR | 0x05</td></tr>
+<tr class="separator:aaa8d81d011087f0ef51a56b8990d393b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaa038baa4247f8ac83d4116488e70fd"><td class="memItemLeft" align="right" valign="top"><a id="afaa038baa4247f8ac83d4116488e70fd"></a>
+CONSTEXPR char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_REACHED_END_MSG</b> [] = &quot;Reached end of document while parsing&quot;</td></tr>
+<tr class="separator:afaa038baa4247f8ac83d4116488e70fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2fcc94bc6253f0a05db3e3a204d30c2"><td class="memItemLeft" align="right" valign="top"><a id="ae2fcc94bc6253f0a05db3e3a204d30c2"></a>
+CONSTEXPR uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MISALIGNED_ENT_CODE</b> = MF_PARSE_ERR | 0x06</td></tr>
+<tr class="separator:ae2fcc94bc6253f0a05db3e3a204d30c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78829af8421393a121fa4a64f218cf1a"><td class="memItemLeft" align="right" valign="top"><a id="a78829af8421393a121fa4a64f218cf1a"></a>
+CONSTEXPR char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MISALIGNED_ENT_MSG</b> [] = &quot;Expected { while parsing ent&quot;</td></tr>
+<tr class="separator:a78829af8421393a121fa4a64f218cf1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains all the functions and error codes for parsing text and lexemes into MapFile structs. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ab6435c0264f690876942cc67f97e9a5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6435c0264f690876942cc67f97e9a5c">&#9670;&nbsp;</a></span>MF_CountAttributes()</h2>
+<a id="ab1701a85c2350d32524c7c6e0828417c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1701a85c2350d32524c7c6e0828417c">&#9670;&nbsp;</a></span>MF_CountAttributes()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int MF_CountAttributes </td>
+          <td class="memname">PRIVATE int MF_CountAttributes </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
           <td class="paramname"><em>lexemes</em></td><td>)</td>
           <td></td>
         </tr>
@@ -206,16 +211,16 @@ constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MI
 
 </div>
 </div>
-<a id="ad7c95ab13e9c1c09692d44e49ecd9ab3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7c95ab13e9c1c09692d44e49ecd9ab3">&#9670;&nbsp;</a></span>MF_CountEntities()</h2>
+<a id="aca0ba63192a2a119c5e8fb7a159b21f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca0ba63192a2a119c5e8fb7a159b21f4">&#9670;&nbsp;</a></span>MF_CountEntities()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int MF_CountEntities </td>
+          <td class="memname">PRIVATE int MF_CountEntities </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
           <td class="paramname"><em>lexemes</em></td><td>)</td>
           <td></td>
         </tr>
@@ -233,16 +238,16 @@ constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MI
 
 </div>
 </div>
-<a id="a708ac292da869498d34aa4560f583d01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a708ac292da869498d34aa4560f583d01">&#9670;&nbsp;</a></span>MF_CountFaces()</h2>
+<a id="a1ec1cbd798716bccc7eae48d7819fdce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ec1cbd798716bccc7eae48d7819fdce">&#9670;&nbsp;</a></span>MF_CountFaces()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int MF_CountFaces </td>
+          <td class="memname">PRIVATE int MF_CountFaces </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
           <td class="paramname"><em>lexemes</em></td><td>)</td>
           <td></td>
         </tr>
@@ -260,14 +265,14 @@ constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MI
 
 </div>
 </div>
-<a id="a8a989384cd172f8e9c1eb6128b397ddc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a989384cd172f8e9c1eb6128b397ddc">&#9670;&nbsp;</a></span>MF_Parse()</h2>
+<a id="a25614040ca43b51ba248c43169799f82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25614040ca43b51ba248c43169799f82">&#9670;&nbsp;</a></span>MF_Parse()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool MF_Parse </td>
+          <td class="memname">BOOL MF_Parse </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>text</em>, </td>
@@ -275,7 +280,7 @@ constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MI
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_m_f___map.html">MF_Map</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="struct_m_f___map.html">MF_Map</a> *&#160;</td>
           <td class="paramname"><em>map</em>&#160;</td>
         </tr>
         <tr>
@@ -298,22 +303,22 @@ constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MI
 
 </div>
 </div>
-<a id="a2eb3abf5c19cac7be46e97842f63af0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2eb3abf5c19cac7be46e97842f63af0e">&#9670;&nbsp;</a></span>MF_ParseBrush()</h2>
+<a id="ae568fb42412a513f833f2ea64f2e36af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae568fb42412a513f833f2ea64f2e36af">&#9670;&nbsp;</a></span>MF_ParseBrush()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a>* MF_ParseBrush </td>
+          <td class="memname">PRIVATE struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a>* MF_ParseBrush </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
           <td class="paramname"><em>lexemes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_m_f___brush.html">MF_Brush</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="struct_m_f___brush.html">MF_Brush</a> *&#160;</td>
           <td class="paramname"><em>brush</em>&#160;</td>
         </tr>
         <tr>
@@ -336,22 +341,22 @@ constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MI
 
 </div>
 </div>
-<a id="a64a54eb25275212755b208ffb26282cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64a54eb25275212755b208ffb26282cb">&#9670;&nbsp;</a></span>MF_ParseEntity()</h2>
+<a id="aefd5d050349c50a33293e597d53b75b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefd5d050349c50a33293e597d53b75b8">&#9670;&nbsp;</a></span>MF_ParseEntity()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a>* MF_ParseEntity </td>
+          <td class="memname">PRIVATE struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a>* MF_ParseEntity </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
           <td class="paramname"><em>lexemes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_m_f___entity.html">MF_Entity</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="struct_m_f___entity.html">MF_Entity</a> *&#160;</td>
           <td class="paramname"><em>entity</em>&#160;</td>
         </tr>
         <tr>
@@ -374,22 +379,22 @@ constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MI
 
 </div>
 </div>
-<a id="abe3ab0cc138d4ebaae22be321e6811cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe3ab0cc138d4ebaae22be321e6811cf">&#9670;&nbsp;</a></span>MF_ParseFace()</h2>
+<a id="acc81c255e96ced025b0c0f0650653ef5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc81c255e96ced025b0c0f0650653ef5">&#9670;&nbsp;</a></span>MF_ParseFace()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a>* MF_ParseFace </td>
+          <td class="memname">PRIVATE struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a>* MF_ParseFace </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
           <td class="paramname"><em>lexemes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_m_f___face.html">MF_Face</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="struct_m_f___face.html">MF_Face</a> *&#160;</td>
           <td class="paramname"><em>face</em>&#160;</td>
         </tr>
         <tr>
@@ -412,22 +417,22 @@ constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MI
 
 </div>
 </div>
-<a id="a47035ed5d6f2f5dbc47d9a2deb76ff70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47035ed5d6f2f5dbc47d9a2deb76ff70">&#9670;&nbsp;</a></span>MF_ParseKeyValuePair()</h2>
+<a id="a1755a5740e63caa7d12b02b5f95b8e82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1755a5740e63caa7d12b02b5f95b8e82">&#9670;&nbsp;</a></span>MF_ParseKeyValuePair()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a>* MF_ParseKeyValuePair </td>
+          <td class="memname">PRIVATE struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a>* MF_ParseKeyValuePair </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
           <td class="paramname"><em>lexemes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_m_f___key_value_pair.html">MF_KeyValuePair</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="struct_m_f___key_value_pair.html">MF_KeyValuePair</a> *&#160;</td>
           <td class="paramname"><em>keyValuePair</em>&#160;</td>
         </tr>
         <tr>
@@ -450,22 +455,22 @@ constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MI
 
 </div>
 </div>
-<a id="a5180411fc9ac10738ea3fc8499c1cce6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5180411fc9ac10738ea3fc8499c1cce6">&#9670;&nbsp;</a></span>MF_ParseTextureParameters()</h2>
+<a id="a5df1bf2db052a3aa1a6bb67324430d07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5df1bf2db052a3aa1a6bb67324430d07">&#9670;&nbsp;</a></span>MF_ParseTextureParameters()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a>* MF_ParseTextureParameters </td>
+          <td class="memname">PRIVATE struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a>* MF_ParseTextureParameters </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
           <td class="paramname"><em>lexemes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_m_f___texture_parameters.html">MF_TextureParameters</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="struct_m_f___texture_parameters.html">MF_TextureParameters</a> *&#160;</td>
           <td class="paramname"><em>textureParameters</em>&#160;</td>
         </tr>
         <tr>
@@ -488,22 +493,22 @@ constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_PARSE_MI
 
 </div>
 </div>
-<a id="a2973810d0d5b5e5708bfbe4daf563341"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2973810d0d5b5e5708bfbe4daf563341">&#9670;&nbsp;</a></span>MF_ParseVertex()</h2>
+<a id="aec531bcd9027aa5df4064c8abff2378a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec531bcd9027aa5df4064c8abff2378a">&#9670;&nbsp;</a></span>MF_ParseVertex()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a>* MF_ParseVertex </td>
+          <td class="memname">PRIVATE struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a>* MF_ParseVertex </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
           <td class="paramname"><em>lexemes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="union_m_f___vertex.html">MF_Vertex</a> *&#160;</td>
+          <td class="paramtype">union <a class="el" href="union_m_f___vertex.html">MF_Vertex</a> *&#160;</td>
           <td class="paramname"><em>vertex</em>&#160;</td>
         </tr>
         <tr>

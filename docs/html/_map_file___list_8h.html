@@ -87,7 +87,6 @@ $(document).ready(function(){initNavTree('_map_file___list_8h.html',''); initRes
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">MapFile_List.h File Reference</div>  </div>
@@ -106,38 +105,31 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single text node in a linked list of text nodes. next = null at the end of the list.  <a href="struct_m_f___lexeme.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a65e7e9397dcf5a04f6f3d16cb944d997"><td class="memItemLeft" align="right" valign="top"><a id="a65e7e9397dcf5a04f6f3d16cb944d997"></a>
-typedef struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___list_8h.html#a65e7e9397dcf5a04f6f3d16cb944d997">MF_Lexeme</a></td></tr>
-<tr class="memdesc:a65e7e9397dcf5a04f6f3d16cb944d997"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single text node in a linked list of text nodes. next = null at the end of the list. <br /></td></tr>
-<tr class="separator:a65e7e9397dcf5a04f6f3d16cb944d997"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a18f2a7f1e87da8c39b432fdc28492b7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___list_8h.html#a18f2a7f1e87da8c39b432fdc28492b7f">MF_NewLexeme</a> (const char *text, size_t stringLength)</td></tr>
-<tr class="memdesc:a18f2a7f1e87da8c39b432fdc28492b7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates a new lexeme struct and a text buffer for it, then copies the provided text into that buffer.  <a href="_map_file___list_8h.html#a18f2a7f1e87da8c39b432fdc28492b7f">More...</a><br /></td></tr>
-<tr class="separator:a18f2a7f1e87da8c39b432fdc28492b7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a902a914c327ae076f9ff0d717a2111bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___list_8h.html#a902a914c327ae076f9ff0d717a2111bd">MF_AttachLexeme</a> (<a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *current, const char *text, size_t stringLength)</td></tr>
-<tr class="memdesc:a902a914c327ae076f9ff0d717a2111bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new lexeme, then appends it to the end of the list provided. If the Lexeme list node provided is not the last node in the list, MF_AttachLexeme will traverse the list and add the new lexeme node to the end.  <a href="_map_file___list_8h.html#a902a914c327ae076f9ff0d717a2111bd">More...</a><br /></td></tr>
-<tr class="separator:a902a914c327ae076f9ff0d717a2111bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a044dfef4ef927ccf4e43eac82107260c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___list_8h.html#a044dfef4ef927ccf4e43eac82107260c">MF_DestroyLexemeList</a> (<a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *head)</td></tr>
-<tr class="memdesc:a044dfef4ef927ccf4e43eac82107260c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys every node (and their text buffers) in the lexeme list and frees them.  <a href="_map_file___list_8h.html#a044dfef4ef927ccf4e43eac82107260c">More...</a><br /></td></tr>
-<tr class="separator:a044dfef4ef927ccf4e43eac82107260c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4ee15fd8ae99a3ef317da8f5a85fe0a"><td class="memItemLeft" align="right" valign="top">PRIVATE struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___list_8h.html#af4ee15fd8ae99a3ef317da8f5a85fe0a">MF_NewLexeme</a> (const char *text, size_t stringLength)</td></tr>
+<tr class="memdesc:af4ee15fd8ae99a3ef317da8f5a85fe0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates a new lexeme struct and a text buffer for it, then copies the provided text into that buffer.  <a href="_map_file___list_8h.html#af4ee15fd8ae99a3ef317da8f5a85fe0a">More...</a><br /></td></tr>
+<tr class="separator:af4ee15fd8ae99a3ef317da8f5a85fe0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbc8fd2b4604bc40a1ebae0f563f2082"><td class="memItemLeft" align="right" valign="top">PRIVATE struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___list_8h.html#abbc8fd2b4604bc40a1ebae0f563f2082">MF_AttachLexeme</a> (struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *current, const char *text, size_t stringLength)</td></tr>
+<tr class="memdesc:abbc8fd2b4604bc40a1ebae0f563f2082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new lexeme, then appends it to the end of the list provided. If the Lexeme list node provided is not the last node in the list, MF_AttachLexeme will traverse the list and add the new lexeme node to the end.  <a href="_map_file___list_8h.html#abbc8fd2b4604bc40a1ebae0f563f2082">More...</a><br /></td></tr>
+<tr class="separator:abbc8fd2b4604bc40a1ebae0f563f2082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab688d086fa0a23c3a1dcb0c37e0435c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___list_8h.html#ab688d086fa0a23c3a1dcb0c37e0435c1">MF_DestroyLexemeList</a> (struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *head)</td></tr>
+<tr class="memdesc:ab688d086fa0a23c3a1dcb0c37e0435c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys every node (and their text buffers) in the lexeme list and frees them.  <a href="_map_file___list_8h.html#ab688d086fa0a23c3a1dcb0c37e0435c1">More...</a><br /></td></tr>
+<tr class="separator:ab688d086fa0a23c3a1dcb0c37e0435c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains all the functions and types for allocating and destroying new members of a lexeme list. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a902a914c327ae076f9ff0d717a2111bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a902a914c327ae076f9ff0d717a2111bd">&#9670;&nbsp;</a></span>MF_AttachLexeme()</h2>
+<a id="abbc8fd2b4604bc40a1ebae0f563f2082"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbc8fd2b4604bc40a1ebae0f563f2082">&#9670;&nbsp;</a></span>MF_AttachLexeme()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a>* MF_AttachLexeme </td>
+          <td class="memname">PRIVATE struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a>* MF_AttachLexeme </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
           <td class="paramname"><em>current</em>, </td>
         </tr>
         <tr>
@@ -173,8 +165,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a044dfef4ef927ccf4e43eac82107260c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a044dfef4ef927ccf4e43eac82107260c">&#9670;&nbsp;</a></span>MF_DestroyLexemeList()</h2>
+<a id="ab688d086fa0a23c3a1dcb0c37e0435c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab688d086fa0a23c3a1dcb0c37e0435c1">&#9670;&nbsp;</a></span>MF_DestroyLexemeList()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -182,7 +174,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void MF_DestroyLexemeList </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td>
           <td class="paramname"><em>head</em></td><td>)</td>
           <td></td>
         </tr>
@@ -199,14 +191,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a18f2a7f1e87da8c39b432fdc28492b7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18f2a7f1e87da8c39b432fdc28492b7f">&#9670;&nbsp;</a></span>MF_NewLexeme()</h2>
+<a id="af4ee15fd8ae99a3ef317da8f5a85fe0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4ee15fd8ae99a3ef317da8f5a85fe0a">&#9670;&nbsp;</a></span>MF_NewLexeme()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a>* MF_NewLexeme </td>
+          <td class="memname">PRIVATE struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a>* MF_NewLexeme </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>text</em>, </td>

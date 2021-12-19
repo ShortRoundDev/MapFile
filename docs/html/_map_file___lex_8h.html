@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('_map_file___lex_8h.html',''); initResi
 
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -101,57 +102,60 @@ $(document).ready(function(){initNavTree('_map_file___lex_8h.html',''); initResi
 </div>
 <p><a href="_map_file___lex_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a5b08dae9c72dd7a93e7a21ec7496bd16"><td class="memItemLeft" align="right" valign="top"><a id="a5b08dae9c72dd7a93e7a21ec7496bd16"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MF_LEX_ERR</b>&#160;&#160;&#160;(0x01000000)</td></tr>
+<tr class="separator:a5b08dae9c72dd7a93e7a21ec7496bd16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:adb8c140850bbd19b14ec690c0620b90c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___lex_8h.html#adb8c140850bbd19b14ec690c0620b90c">MF_Lex</a> (const char *string)</td></tr>
-<tr class="memdesc:adb8c140850bbd19b14ec690c0620b90c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a linked list of uncategorized lexemes from the text input.  <a href="_map_file___lex_8h.html#adb8c140850bbd19b14ec690c0620b90c">More...</a><br /></td></tr>
-<tr class="separator:adb8c140850bbd19b14ec690c0620b90c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f037af55299058915d764be57a9f0c5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___lex_8h.html#a0f037af55299058915d764be57a9f0c5">MF_LexString</a> (char *string)</td></tr>
-<tr class="memdesc:a0f037af55299058915d764be57a9f0c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the input string points to the start of a string of the format "string" then MF_LexString returns the length of the lexeme. Otherwise, it returns 0.  <a href="_map_file___lex_8h.html#a0f037af55299058915d764be57a9f0c5">More...</a><br /></td></tr>
-<tr class="separator:a0f037af55299058915d764be57a9f0c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae347330e3d224a544d0b6c16d3526ea4"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___lex_8h.html#ae347330e3d224a544d0b6c16d3526ea4">MF_LexNumber</a> (char *string)</td></tr>
-<tr class="memdesc:ae347330e3d224a544d0b6c16d3526ea4"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the input string points to the start of a number string (which allows - and . symbols), then MF_LexNumber returns the length of the lexeme. Otherwise, it returns 0.  <a href="_map_file___lex_8h.html#ae347330e3d224a544d0b6c16d3526ea4">More...</a><br /></td></tr>
-<tr class="separator:ae347330e3d224a544d0b6c16d3526ea4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04703e5a9b12df2d3999bfe64b4c6a7d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___lex_8h.html#a04703e5a9b12df2d3999bfe64b4c6a7d">MF_LexComment</a> (char *string)</td></tr>
-<tr class="memdesc:a04703e5a9b12df2d3999bfe64b4c6a7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the input string points to the start of a comment string of the format //comment (ending with either a newline or null terminator), then MF_LexComment returns the length of the lexeme. Otherwise, it returns 0.  <a href="_map_file___lex_8h.html#a04703e5a9b12df2d3999bfe64b4c6a7d">More...</a><br /></td></tr>
-<tr class="separator:a04703e5a9b12df2d3999bfe64b4c6a7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2108dde1a6e703fd6151695489c3088"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___lex_8h.html#ab2108dde1a6e703fd6151695489c3088">MF_LexWhitespacePaddedString</a> (char *string)</td></tr>
-<tr class="memdesc:ab2108dde1a6e703fd6151695489c3088"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the length of the lexeme ending with whitespace or a null terminator. All characters are matched up until whitespace, a newline, or the null terminator, so this function should never return 0 (unless the input itself starts with whitespace, which should never happen in the core MF_Lex loop).  <a href="_map_file___lex_8h.html#ab2108dde1a6e703fd6151695489c3088">More...</a><br /></td></tr>
-<tr class="separator:ab2108dde1a6e703fd6151695489c3088"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af16cc976b126e35b1fc52e608de517cd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___lex_8h.html#af16cc976b126e35b1fc52e608de517cd">MF_LexIsMapFileSyntax</a> (char c)</td></tr>
-<tr class="memdesc:af16cc976b126e35b1fc52e608de517cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the character is either { } ( ) or a newline (<br  />
-). Else, returns false.  <a href="_map_file___lex_8h.html#af16cc976b126e35b1fc52e608de517cd">More...</a><br /></td></tr>
-<tr class="separator:af16cc976b126e35b1fc52e608de517cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1691cf8551728891a15a325eb63d0aed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___lex_8h.html#a1691cf8551728891a15a325eb63d0aed">MF_LexIsWhitespace</a> (char c)</td></tr>
-<tr class="memdesc:a1691cf8551728891a15a325eb63d0aed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the character is either a space or a tab.  <a href="_map_file___lex_8h.html#a1691cf8551728891a15a325eb63d0aed">More...</a><br /></td></tr>
-<tr class="separator:a1691cf8551728891a15a325eb63d0aed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac459d34aedc2cc06f83854bd845c1285"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___lex_8h.html#ac459d34aedc2cc06f83854bd845c1285">MF_LexIsNumber</a> (char c)</td></tr>
-<tr class="memdesc:ac459d34aedc2cc06f83854bd845c1285"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the character is a digit, a period (.) or a minus (-)  <a href="_map_file___lex_8h.html#ac459d34aedc2cc06f83854bd845c1285">More...</a><br /></td></tr>
-<tr class="separator:ac459d34aedc2cc06f83854bd845c1285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a453f1e0b648b30bb3967e75f7f3c13e4"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___lex_8h.html#a453f1e0b648b30bb3967e75f7f3c13e4">MF_Lex</a> (const char *string)</td></tr>
+<tr class="memdesc:a453f1e0b648b30bb3967e75f7f3c13e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a linked list of uncategorized lexemes from the text input.  <a href="_map_file___lex_8h.html#a453f1e0b648b30bb3967e75f7f3c13e4">More...</a><br /></td></tr>
+<tr class="separator:a453f1e0b648b30bb3967e75f7f3c13e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ef144b148f50835824b9de8ba0de374"><td class="memItemLeft" align="right" valign="top">PRIVATE size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___lex_8h.html#a5ef144b148f50835824b9de8ba0de374">MF_LexString</a> (char *string)</td></tr>
+<tr class="memdesc:a5ef144b148f50835824b9de8ba0de374"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the input string points to the start of a string of the format "string" then MF_LexString returns the length of the lexeme. Otherwise, it returns 0.  <a href="_map_file___lex_8h.html#a5ef144b148f50835824b9de8ba0de374">More...</a><br /></td></tr>
+<tr class="separator:a5ef144b148f50835824b9de8ba0de374"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfb0c0694d95d39ace14b980f04ba2e8"><td class="memItemLeft" align="right" valign="top">PRIVATE size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___lex_8h.html#abfb0c0694d95d39ace14b980f04ba2e8">MF_LexNumber</a> (char *string)</td></tr>
+<tr class="memdesc:abfb0c0694d95d39ace14b980f04ba2e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the input string points to the start of a number string (which allows - and . symbols), then MF_LexNumber returns the length of the lexeme. Otherwise, it returns 0.  <a href="_map_file___lex_8h.html#abfb0c0694d95d39ace14b980f04ba2e8">More...</a><br /></td></tr>
+<tr class="separator:abfb0c0694d95d39ace14b980f04ba2e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4d928ae96341e9ebc57aa1416775c26"><td class="memItemLeft" align="right" valign="top">PRIVATE size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___lex_8h.html#af4d928ae96341e9ebc57aa1416775c26">MF_LexComment</a> (char *string)</td></tr>
+<tr class="memdesc:af4d928ae96341e9ebc57aa1416775c26"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the input string points to the start of a comment string of the format //comment (ending with either a newline or null terminator), then MF_LexComment returns the length of the lexeme. Otherwise, it returns 0.  <a href="_map_file___lex_8h.html#af4d928ae96341e9ebc57aa1416775c26">More...</a><br /></td></tr>
+<tr class="separator:af4d928ae96341e9ebc57aa1416775c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50669a6adaea2df4a1c6493f74c886c0"><td class="memItemLeft" align="right" valign="top">PRIVATE size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___lex_8h.html#a50669a6adaea2df4a1c6493f74c886c0">MF_LexWhitespacePaddedString</a> (char *string)</td></tr>
+<tr class="memdesc:a50669a6adaea2df4a1c6493f74c886c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the length of the lexeme ending with whitespace or a null terminator. All characters are matched up until whitespace, a newline, or the null terminator, so this function should never return 0 (unless the input itself starts with whitespace, which should never happen in the core MF_Lex loop).  <a href="_map_file___lex_8h.html#a50669a6adaea2df4a1c6493f74c886c0">More...</a><br /></td></tr>
+<tr class="separator:a50669a6adaea2df4a1c6493f74c886c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbb14fb368169366aae0059bb286dc07"><td class="memItemLeft" align="right" valign="top">PRIVATE BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___lex_8h.html#afbb14fb368169366aae0059bb286dc07">MF_LexIsMapFileSyntax</a> (char c)</td></tr>
+<tr class="memdesc:afbb14fb368169366aae0059bb286dc07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the character is either { } ( ) or a newline (<br  />
+). Else, returns false.  <a href="_map_file___lex_8h.html#afbb14fb368169366aae0059bb286dc07">More...</a><br /></td></tr>
+<tr class="separator:afbb14fb368169366aae0059bb286dc07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7111bcb974b749a442f8dee650f63524"><td class="memItemLeft" align="right" valign="top">PRIVATE BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___lex_8h.html#a7111bcb974b749a442f8dee650f63524">MF_LexIsWhitespace</a> (char c)</td></tr>
+<tr class="memdesc:a7111bcb974b749a442f8dee650f63524"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the character is either a space or a tab.  <a href="_map_file___lex_8h.html#a7111bcb974b749a442f8dee650f63524">More...</a><br /></td></tr>
+<tr class="separator:a7111bcb974b749a442f8dee650f63524"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adebe421b1570d2072d3b8e0c56a84a05"><td class="memItemLeft" align="right" valign="top">PRIVATE BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___lex_8h.html#adebe421b1570d2072d3b8e0c56a84a05">MF_LexIsNumber</a> (char c)</td></tr>
+<tr class="memdesc:adebe421b1570d2072d3b8e0c56a84a05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the character is a digit, a period (.) or a minus (-)  <a href="_map_file___lex_8h.html#adebe421b1570d2072d3b8e0c56a84a05">More...</a><br /></td></tr>
+<tr class="separator:adebe421b1570d2072d3b8e0c56a84a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a4d42428e1627af640db68e24c7a932ad"><td class="memItemLeft" align="right" valign="top"><a id="a4d42428e1627af640db68e24c7a932ad"></a>
-constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>MF_LEX_ERR</b> = 0x01000000</td></tr>
-<tr class="separator:a4d42428e1627af640db68e24c7a932ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8426c501abf6d6cb12f0002b6a4ab8a0"><td class="memItemLeft" align="right" valign="top"><a id="a8426c501abf6d6cb12f0002b6a4ab8a0"></a>
-constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>MF_LEX_UNREC_STR_CODE</b> = MF_LEX_ERR | 0x01</td></tr>
-<tr class="separator:a8426c501abf6d6cb12f0002b6a4ab8a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a178a55d2ba33d995351906cc4aa4569a"><td class="memItemLeft" align="right" valign="top"><a id="a178a55d2ba33d995351906cc4aa4569a"></a>
-constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_LEX_UNREC_STR_MSG</b> [] = &quot;Unrecognized token in string!&quot;</td></tr>
-<tr class="separator:a178a55d2ba33d995351906cc4aa4569a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9d5b6d217ba6766c496b64ef1c0f2a9"><td class="memItemLeft" align="right" valign="top"><a id="af9d5b6d217ba6766c496b64ef1c0f2a9"></a>
+CONSTEXPR uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>MF_LEX_UNREC_STR_CODE</b> = MF_LEX_ERR | 0x01</td></tr>
+<tr class="separator:af9d5b6d217ba6766c496b64ef1c0f2a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab76fe0a63726ddabd2af91d82bc8da07"><td class="memItemLeft" align="right" valign="top"><a id="ab76fe0a63726ddabd2af91d82bc8da07"></a>
+CONSTEXPR char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_LEX_UNREC_STR_MSG</b> [] = &quot;Unrecognized token in string!&quot;</td></tr>
+<tr class="separator:ab76fe0a63726ddabd2af91d82bc8da07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains all the functions for generating a lexeme list from the source text. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="adb8c140850bbd19b14ec690c0620b90c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb8c140850bbd19b14ec690c0620b90c">&#9670;&nbsp;</a></span>MF_Lex()</h2>
+<a id="a453f1e0b648b30bb3967e75f7f3c13e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a453f1e0b648b30bb3967e75f7f3c13e4">&#9670;&nbsp;</a></span>MF_Lex()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a>* MF_Lex </td>
+          <td class="memname">struct <a class="el" href="struct_m_f___lexeme.html">MF_Lexeme</a>* MF_Lex </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>string</em></td><td>)</td>
@@ -171,14 +175,14 @@ constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_LEX_UNRE
 
 </div>
 </div>
-<a id="a04703e5a9b12df2d3999bfe64b4c6a7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04703e5a9b12df2d3999bfe64b4c6a7d">&#9670;&nbsp;</a></span>MF_LexComment()</h2>
+<a id="af4d928ae96341e9ebc57aa1416775c26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4d928ae96341e9ebc57aa1416775c26">&#9670;&nbsp;</a></span>MF_LexComment()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t MF_LexComment </td>
+          <td class="memname">PRIVATE size_t MF_LexComment </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>string</em></td><td>)</td>
@@ -198,14 +202,14 @@ constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_LEX_UNRE
 
 </div>
 </div>
-<a id="af16cc976b126e35b1fc52e608de517cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af16cc976b126e35b1fc52e608de517cd">&#9670;&nbsp;</a></span>MF_LexIsMapFileSyntax()</h2>
+<a id="afbb14fb368169366aae0059bb286dc07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbb14fb368169366aae0059bb286dc07">&#9670;&nbsp;</a></span>MF_LexIsMapFileSyntax()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool MF_LexIsMapFileSyntax </td>
+          <td class="memname">PRIVATE BOOL MF_LexIsMapFileSyntax </td>
           <td>(</td>
           <td class="paramtype">char&#160;</td>
           <td class="paramname"><em>c</em></td><td>)</td>
@@ -226,14 +230,14 @@ constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_LEX_UNRE
 
 </div>
 </div>
-<a id="ac459d34aedc2cc06f83854bd845c1285"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac459d34aedc2cc06f83854bd845c1285">&#9670;&nbsp;</a></span>MF_LexIsNumber()</h2>
+<a id="adebe421b1570d2072d3b8e0c56a84a05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adebe421b1570d2072d3b8e0c56a84a05">&#9670;&nbsp;</a></span>MF_LexIsNumber()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool MF_LexIsNumber </td>
+          <td class="memname">PRIVATE BOOL MF_LexIsNumber </td>
           <td>(</td>
           <td class="paramtype">char&#160;</td>
           <td class="paramname"><em>c</em></td><td>)</td>
@@ -253,14 +257,14 @@ constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_LEX_UNRE
 
 </div>
 </div>
-<a id="a1691cf8551728891a15a325eb63d0aed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1691cf8551728891a15a325eb63d0aed">&#9670;&nbsp;</a></span>MF_LexIsWhitespace()</h2>
+<a id="a7111bcb974b749a442f8dee650f63524"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7111bcb974b749a442f8dee650f63524">&#9670;&nbsp;</a></span>MF_LexIsWhitespace()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool MF_LexIsWhitespace </td>
+          <td class="memname">PRIVATE BOOL MF_LexIsWhitespace </td>
           <td>(</td>
           <td class="paramtype">char&#160;</td>
           <td class="paramname"><em>c</em></td><td>)</td>
@@ -280,14 +284,14 @@ constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_LEX_UNRE
 
 </div>
 </div>
-<a id="ae347330e3d224a544d0b6c16d3526ea4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae347330e3d224a544d0b6c16d3526ea4">&#9670;&nbsp;</a></span>MF_LexNumber()</h2>
+<a id="abfb0c0694d95d39ace14b980f04ba2e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfb0c0694d95d39ace14b980f04ba2e8">&#9670;&nbsp;</a></span>MF_LexNumber()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t MF_LexNumber </td>
+          <td class="memname">PRIVATE size_t MF_LexNumber </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>string</em></td><td>)</td>
@@ -307,14 +311,14 @@ constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_LEX_UNRE
 
 </div>
 </div>
-<a id="a0f037af55299058915d764be57a9f0c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f037af55299058915d764be57a9f0c5">&#9670;&nbsp;</a></span>MF_LexString()</h2>
+<a id="a5ef144b148f50835824b9de8ba0de374"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ef144b148f50835824b9de8ba0de374">&#9670;&nbsp;</a></span>MF_LexString()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t MF_LexString </td>
+          <td class="memname">PRIVATE size_t MF_LexString </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>string</em></td><td>)</td>
@@ -334,14 +338,14 @@ constexpr char&#160;</td><td class="memItemRight" valign="bottom"><b>MF_LEX_UNRE
 
 </div>
 </div>
-<a id="ab2108dde1a6e703fd6151695489c3088"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2108dde1a6e703fd6151695489c3088">&#9670;&nbsp;</a></span>MF_LexWhitespacePaddedString()</h2>
+<a id="a50669a6adaea2df4a1c6493f74c886c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50669a6adaea2df4a1c6493f74c886c0">&#9670;&nbsp;</a></span>MF_LexWhitespacePaddedString()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t MF_LexWhitespacePaddedString </td>
+          <td class="memname">PRIVATE size_t MF_LexWhitespacePaddedString </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>string</em></td><td>)</td>

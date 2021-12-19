@@ -86,7 +86,8 @@ $(document).ready(function(){initNavTree('_map_file___types_8h.html',''); initRe
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a>  </div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
 <div class="title">MapFile_Types.h File Reference</div>  </div>
 </div><!--header-->
@@ -120,10 +121,76 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_f___map.html">MF_Map</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main map struct.  <a href="struct_m_f___map.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a9ab33c5b29a833ca6cbff7f83bb75e98"><td class="memItemLeft" align="right" valign="top"><a id="a9ab33c5b29a833ca6cbff7f83bb75e98"></a>
+typedef struct <a class="el" href="struct_m_f___texture_parameters.html">MF_TextureParameters</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___types_8h.html#a9ab33c5b29a833ca6cbff7f83bb75e98">MF_TextureParameters_t</a></td></tr>
+<tr class="memdesc:a9ab33c5b29a833ca6cbff7f83bb75e98"><td class="mdescLeft">&#160;</td><td class="mdescRight">A set of floats for deriving the UV Map of the texture on the face. <br /></td></tr>
+<tr class="separator:a9ab33c5b29a833ca6cbff7f83bb75e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35c80f2240e4def9ddb39aa0461bc12c"><td class="memItemLeft" align="right" valign="top">typedef union <a class="el" href="union_m_f___vertex.html">MF_Vertex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___types_8h.html#a35c80f2240e4def9ddb39aa0461bc12c">MF_Vertex_t</a></td></tr>
+<tr class="memdesc:a35c80f2240e4def9ddb39aa0461bc12c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A vertex of 4 floats.  <a href="_map_file___types_8h.html#a35c80f2240e4def9ddb39aa0461bc12c">More...</a><br /></td></tr>
+<tr class="separator:a35c80f2240e4def9ddb39aa0461bc12c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad61ca1e3aa7a016ec6eb8d2515e70093"><td class="memItemLeft" align="right" valign="top"><a id="ad61ca1e3aa7a016ec6eb8d2515e70093"></a>
+typedef struct <a class="el" href="struct_m_f___face.html">MF_Face</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___types_8h.html#ad61ca1e3aa7a016ec6eb8d2515e70093">MF_Face_t</a></td></tr>
+<tr class="memdesc:ad61ca1e3aa7a016ec6eb8d2515e70093"><td class="mdescLeft">&#160;</td><td class="mdescRight">A single face of the brush, which includes the points of the brush as well as texture information for that face. <br /></td></tr>
+<tr class="separator:ad61ca1e3aa7a016ec6eb8d2515e70093"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79f301cb33767a2a41effe920171a33e"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_m_f___brush.html">MF_Brush</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___types_8h.html#a79f301cb33767a2a41effe920171a33e">MF_Brush_t</a></td></tr>
+<tr class="memdesc:a79f301cb33767a2a41effe920171a33e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A brush. A wall, floor, ceiling, slope, etc.  <a href="_map_file___types_8h.html#a79f301cb33767a2a41effe920171a33e">More...</a><br /></td></tr>
+<tr class="separator:a79f301cb33767a2a41effe920171a33e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6e33727d289dd3560cdb9fbac0d3d92"><td class="memItemLeft" align="right" valign="top"><a id="ae6e33727d289dd3560cdb9fbac0d3d92"></a>
+typedef struct <a class="el" href="struct_m_f___key_value_pair.html">MF_KeyValuePair</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___types_8h.html#ae6e33727d289dd3560cdb9fbac0d3d92">MF_KeyValuePair_t</a></td></tr>
+<tr class="memdesc:ae6e33727d289dd3560cdb9fbac0d3d92"><td class="mdescLeft">&#160;</td><td class="mdescRight">An attribute in the entity definition. Both Key and Value are allocated with MF_Alloc, and so need to be destroyed individually. <br /></td></tr>
+<tr class="separator:ae6e33727d289dd3560cdb9fbac0d3d92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a863d09e52cc0705201e08d1a66b5fe52"><td class="memItemLeft" align="right" valign="top"><a id="a863d09e52cc0705201e08d1a66b5fe52"></a>
+typedef struct <a class="el" href="struct_m_f___entity.html">MF_Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___types_8h.html#a863d09e52cc0705201e08d1a66b5fe52">MF_Entity_t</a></td></tr>
+<tr class="memdesc:a863d09e52cc0705201e08d1a66b5fe52"><td class="mdescLeft">&#160;</td><td class="mdescRight">An object in the game; either a true entity (some item, an enemy, etc.) or a brush (a wall, a floor, etc.) <br /></td></tr>
+<tr class="separator:a863d09e52cc0705201e08d1a66b5fe52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79cf3be3d9a28222230541e65a653c08"><td class="memItemLeft" align="right" valign="top"><a id="a79cf3be3d9a28222230541e65a653c08"></a>
+typedef struct <a class="el" href="struct_m_f___map.html">MF_Map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_map_file___types_8h.html#a79cf3be3d9a28222230541e65a653c08">MF_Map_t</a></td></tr>
+<tr class="memdesc:a79cf3be3d9a28222230541e65a653c08"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main map struct. <br /></td></tr>
+<tr class="separator:a79cf3be3d9a28222230541e65a653c08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The core types which define the data in a Map file. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="a79f301cb33767a2a41effe920171a33e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79f301cb33767a2a41effe920171a33e">&#9670;&nbsp;</a></span>MF_Brush_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_m_f___brush.html">MF_Brush</a> <a class="el" href="_map_file___types_8h.html#a79f301cb33767a2a41effe920171a33e">MF_Brush_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A brush. A wall, floor, ceiling, slope, etc. </p>
+<p>Brushes are convex polyhedra made up of a set of bounding planes, which are in turn represented by a single triangle which lies along that plane.</p>
+<p>Each plane needs to be collided with each other to retrieve a point cloud which make up the actual mesh, which can be triangulated from there </p>
+
+</div>
+</div>
+<a id="a35c80f2240e4def9ddb39aa0461bc12c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35c80f2240e4def9ddb39aa0461bc12c">&#9670;&nbsp;</a></span>MF_Vertex_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef union <a class="el" href="union_m_f___vertex.html">MF_Vertex</a> <a class="el" href="_map_file___types_8h.html#a35c80f2240e4def9ddb39aa0461bc12c">MF_Vertex_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A vertex of 4 floats. </p>
+<p>This was designed to be closely cast-able to other vec4 representations. Though no face in the brush actually contains 4 components, this uses 4 for struct packing reasons. Additionally, many users in graphics environments tend to send float4s for everything (for both compatibility with transformation matrices as well as packing reasons). The last component is initialized to 0</p>
+<p>The floats can be accessed by component (vertex.x, vertex.y, vertex.z, vertex.w) or through the comp array (vertex.comp[0], vertex.comp[1], etc.) </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
