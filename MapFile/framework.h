@@ -1,3 +1,7 @@
+/** \file    framework.h
+ *  \brief   Windows specific stuff, related to DLL exporting and importing
+ */
+
 #pragma once
 
 #ifdef MAPFILE_EXPORTS
@@ -8,6 +12,5 @@
 	#define LIB_GLOBAL extern
 #endif
 
-#define WIN32_LEAN_AND_MEAN             // Exclude rarely-used stuff from Windows headers
-// Windows Header Files
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>

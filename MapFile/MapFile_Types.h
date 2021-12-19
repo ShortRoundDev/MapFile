@@ -1,18 +1,39 @@
-#pragma once
+/** \file   MapFile_Types.h
+ *  \brief  The core types which define the data in a Map file
+ */
 
+#pragma once
+/** \brief     A set of floats for deriving the UV Map of the texture on the face. */
 struct MF_TextureParameters
 {
-    float offsetX;
-    float offsetY;
+    /** \brief     The offset (x) of the texture. */
+    float offsetX; // TODO: Determine how this is used by trenchbroom, precisely
+    /** \brief     The offset (x) of the texture. */
+    float offsetY; // TODO: Determine how this is used by trenchbroom, precisely
+    /** \brief     The rotation of the texture, in degrees [0, 360] */
     float angle;
+    /** \brief     The scale (x) of the texture
+     */
     float scaleX;
+    /** \brief     The scale (y) of the texture */
     float scaleY;
 };
-
+/** \brief     A vertex of 4 floats.
+ * 
+ *  \details   This was designed to be closely cast-able to other vec4
+ *             representations. Though no face in the brush actually contains 4 components,
+ *             this uses 4 for struct packing reasons. Additionally, many users in graphics
+ *             environments tend to send float4s for everything (for both compatibility with
+ *             transformation matrices as well as packing reasons). The last component is
+ *             initialized to 0
+ *  
+ *             The floats can be accessed by component (vertex.x, vertex.y, vertex.z, vertex.w)
+ *             or through the comp array (vertex.comp[0], vertex.comp[1], etc.)
+ */
 union MF_Vertex
 {
-    // I think this is UB in C, but not C++!
-    struct
+    
+    struct // I think this is UB in C, but not C++
     {
         float x;
         float y;
@@ -21,41 +42,80 @@ union MF_Vertex
     };
     float comp[4]; // components
 };
-
+/** \brief     A single face of the brush, which includes the points of the brush as well as
+ *             texture information for that face
+ */
 struct MF_Face
 {
+    /** \brief     The 3 vertices which make up the triangle along the bounding plane */
     MF_Vertex facePoints[3];
+    /** \brief     The name of the texture */
     char* texture;
+    /** \brief     A set of parameters which make up information about the UV Map of the triangle
+     *
+     *  \details   Unfortunately, because there are no actual mesh triangles in the map brush,
+     *             these parameters are angles and pixel offsets rather than strict UV coordinates
+     */
     MF_TextureParameters textureParameters;
 };
-
+/** \brief     A brush. A wall, floor, ceiling, slope, etc.
+ *
+ *  \details   Brushes are convex polyhedra made up of a set of bounding planes, which are in turn
+ *             represented by a single triangle which lies along that plane.
+ *
+ *             Each plane needs to be collided with each other to retrieve a point cloud which make up
+ *             the actual mesh, which can be triangulated from there
+ */
 struct MF_Brush
 {
+    /** \brief     The number of faces in the brush */
     size_t totalFaces;
+    /** \brief     A contiguous set of faces in memory */
     MF_Face* faces;
 };
-
+/** \brief     An attribute in the entity definition. Both Key and Value are allocated with MF_Alloc,
+ *             and so need to be destroyed individually. */
 struct MF_KeyValuePair
 {
+    /** \brief     The key of the attribute */
     char* key;
+    /** \brief     The value of the attribute */
     char* value;
 };
-
+/** \brief     An object in the game; either a true entity (some item, an enemy, etc.)
+ *             or a brush (a wall, a floor, etc.) */
 struct MF_Entity
 {
+    /** \brief     The name of the entity type.
+     * 
+     *  \details   This is specifically parsed out of the attributes,
+     *             and points to the same area of memory as the value in the Key Value Pair with the
+     *             "classname" key. Do not destroy this pointer manually, as it should be destroyed
+     *             when the attributes are cleaned up
+     */
     char* classname;
-    char* textures;
+    /** \brief     The starting position of the entity, as a string of 3 floats (a vertex).
+     *
+     *  \details   This is
+     *             specifically parsed out of the attributes, and points to the same area of memory
+     *             as the value in the Key Value Pair with the "origin" key. Do not destroy this
+     *             pointer manually, as it should be destroyed when the attributes are cleaned up
+     */
     char* origin;
-
+    /** \brief     The total number of Key Value Pairs in the attributes pointer */
     size_t totalAttributes;
+    /** \brief     A contiguous set of key value pairs in memory */
     MF_KeyValuePair* attributes;
-
+    /** \brief     The total number of brushes in the brushes pointer */
     size_t totalBrushes;
+    /** \brief     A contiguous set of brushes in memory */
     MF_Brush* brushes;
 };
-
+/** \brief     The main map struct. */
 struct MF_Map
 {
+    /** \brief     The total number of entities in the items pointer */
     size_t totalItems;
+    /** \brief     A contiguous set of entities in memory */
     MF_Entity* items;
 };

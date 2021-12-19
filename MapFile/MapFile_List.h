@@ -1,38 +1,37 @@
+/** \file    Mapfile_List.h
+ *  \brief   Contains all the functions and types for allocating and destroying new members of a lexeme list
+ */
+
 #pragma once
 
 #include "framework.h"
 
-/// <summary>
-/// A single text node in a linked list of text nodes. next = null at the end of the list
-/// </summary>
+/** \brief      A single text node in a linked list of text nodes. next = null at the end of the list */
 typedef struct MF_Lexeme
 {
 	char* lexeme;
 	MF_Lexeme* next;
 } MF_Lexeme;
 
-/// <summary>
-/// Allocates a new lexeme struct and a text buffer for it, then copies the provided text
-/// into that buffer
-/// </summary>
-/// <param name="text">Text for the lexeme</param>
-/// <param name="stringLength">Length of the lexeme text</param>
-/// <returns>A pointer to the newly allocated lexeme</returns>
+/** \brief                    Allocates a new lexeme struct and a text buffer for it, then copies the provided text
+ *                            into that buffer
+ *  \param[In] text           Text for the lexeme
+ *  \param[In] stringLength   Length of the lexeme text
+ *  \return                   A pointer to the newly allocated lexeme
+ */
 MF_Lexeme* MF_NewLexeme(const char* text, size_t stringLength);
 
-/// <summary>
-/// Calls MF_NewLexeme, then appends it to the end of the list provided. If the Lexeme list
-/// node provided is not the last node in the list, MF_AttachLexeme will traverse the list and
-/// add the new lexeme node to the end
-/// </summary>
-/// <param name="current">The list node to append to</param>
-/// <param name="text">The text to add to the lexeme</param>
-/// <param name="stringLength">The length of the text</param>
-/// <returns>A pointer to the newly allocated lexeme</returns>
-MF_Lexeme* MF_AttachLexeme(MF_Lexeme* current, const char* text, size_t stringLength);
+/** \brief                    Creates a new lexeme, then appends it to the end of the list provided. If the Lexeme list
+ *                            node provided is not the last node in the list, MF_AttachLexeme will traverse the list and
+ *                            add the new lexeme node to the end
+ *  \param[In] current        The list node to append to
+ *  \param[In] text           The text to add to the lexeme
+ *  \param[In] stringLength   The length of the text
+ *  \return                   A pointer to the newly allocated lexeme
+ */
+ MF_Lexeme* MF_AttachLexeme(MF_Lexeme* current, const char* text, size_t stringLength);
 
-/// <summary>
-/// Destroys every node (and their text buffers) in the lexeme list and frees them
-/// </summary>
-/// <param name="head">The head of the lexeme list</param>
-DLL void MF_DestroyLexemeList(MF_Lexeme* head);
+/** \brief            Destroys every node (and their text buffers) in the lexeme list and frees them
+ *  \param[In] head   The head of the lexeme list
+ */
+ DLL void MF_DestroyLexemeList(MF_Lexeme* head);
