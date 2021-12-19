@@ -48,7 +48,7 @@ This
 
 Everything in a map file is an entity of some kind (a dictionary of string-string key value pairs), but some entities have brushes in them, which are bounding planes which define the faces of each brush as well as the texture information for each face
 
-If a map needs some kind of global variable, it's just an entity with attributes on it (water_lod_control in Source engine, for example)
+If a map needs some kind of global variable, it's just a singleton entity with attributes on it (water_lod_control in Source engine, for example)
 
 ## Installation
 Todo Upon release
