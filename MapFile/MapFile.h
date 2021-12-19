@@ -6,14 +6,16 @@
  * a set of C structs which can be used to generate actual world geometry meshes or serve as
  * tokens for creating entities.
  * 
- * \section		use_sec			What's the use case?
+ * See the source code at https://github.com/shortrounddev/mapfile
+ * 
+ * \subsection		use_sec			What's the use case?
  * 1. For those who don't want to re-invent the wheel by developing their own CSG editors for
  * their own custom engine, but also don't want to implement the specificities of a .bsp file
  * 
  * 2. For those who don't like their current engine's CSG editors (such as Unity) and are more
  * familiar with the quake/valve world of editors
 
- * \section		map_sec			What does a .map file look like
+ * \subsection		map_sec			What does a .map file look like
  * This
 
  * ```c
@@ -54,10 +56,10 @@
 
  * If a map needs some kind of global variable, it's just a singleton entity with attributes on it (water_lod_control in Source engine, for example)
 
- * \section		installation_sec		Installation
+ * \subsection		installation_sec		Installation
  * Todo Upon release
 
- * \section		usage_sec				Usage
+ * \subsection		usage_sec				Usage
 
  * MapFile currently can parse brush information into structs. As an example of that, check out the example in HelloMapFile:
  * ```c
@@ -111,12 +113,12 @@
  * Entity #1 attribute: classname = entity
  * ```
  * 
- * \section		roadmap_sec		Roadmap / What's next
+ * \subsection		roadmap_sec		Roadmap / What's next
  *
  * 1. Implement MF_Map destructor.
  * 2. Add the geometry functions required to create a point cloud or mesh from the intersections of the brushes
  * 3. Add C# Bindings(and other bindings if anyone wants them)
- * \section		faq_sec			FAQ
+ * \subsection		faq_sec			FAQ
  * > Why not just export a wavefront.obj file ?
  *
  * You can do that for geometry, but it doesn't include entity information

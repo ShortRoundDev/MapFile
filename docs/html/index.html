@@ -92,14 +92,15 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="textblock"><h1><a class="anchor" id="intro_sec"></a>
 What is this</h1>
 <p>MapFile.dll is a Windows library for parsing through .map files created by CSG editors like <a href="https://trenchbroom.github.io/">Trenchbroom</a>. It deserializes the text of the file into a set of C structs which can be used to generate actual world geometry meshes or serve as tokens for creating entities.</p>
-<h1><a class="anchor" id="use_sec"></a>
-What's the use case?</h1>
+<p>See the source code at <a href="https://github.com/shortrounddev/mapfile">https://github.com/shortrounddev/mapfile</a></p>
+<h2><a class="anchor" id="use_sec"></a>
+What's the use case?</h2>
 <ol type="1">
 <li>For those who don't want to re-invent the wheel by developing their own CSG editors for their own custom engine, but also don't want to implement the specificities of a .bsp file</li>
 <li>For those who don't like their current engine's CSG editors (such as Unity) and are more familiar with the quake/valve world of editors</li>
 </ol>
-<h1><a class="anchor" id="map_sec"></a>
-What does a .map file look like</h1>
+<h2><a class="anchor" id="map_sec"></a>
+What does a .map file look like</h2>
 <p>This</p>
 <div class="fragment"><div class="line"><span class="comment">// Game: Generic</span></div>
 <div class="line"><span class="comment">// Format: Standard</span></div>
@@ -134,11 +135,11 @@ What does a .map file look like</h1>
 <div class="line">}</div>
 </div><!-- fragment --><p>Everything in a map file is an entity of some kind (a dictionary of string-string key value pairs), but some entities have brushes in them, which are bounding planes which define the faces of each brush as well as the texture information for each face</p>
 <p>If a map needs some kind of global variable, it's just a singleton entity with attributes on it (water_lod_control in Source engine, for example)</p>
-<h1><a class="anchor" id="installation_sec"></a>
-Installation</h1>
+<h2><a class="anchor" id="installation_sec"></a>
+Installation</h2>
 <p>Todo Upon release</p>
-<h1><a class="anchor" id="usage_sec"></a>
-Usage</h1>
+<h2><a class="anchor" id="usage_sec"></a>
+Usage</h2>
 <p>MapFile currently can parse brush information into structs. As an example of that, check out the example in HelloMapFile: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;MapFile.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"> </div>
@@ -195,15 +196,15 @@ Usage</h1>
 <div class="line">Success!</div>
 <div class="line">Total Entities : 1</div>
 <div class="line">Entity #1 attribute: classname = entity</div>
-</div><!-- fragment --><h1><a class="anchor" id="roadmap_sec"></a>
-Roadmap / What's next</h1>
+</div><!-- fragment --><h2><a class="anchor" id="roadmap_sec"></a>
+Roadmap / What's next</h2>
 <ol type="1">
 <li>Implement <a class="el" href="struct_m_f___map.html" title="The main map struct.">MF_Map</a> destructor.</li>
 <li>Add the geometry functions required to create a point cloud or mesh from the intersections of the brushes</li>
 <li>Add C# Bindings(and other bindings if anyone wants them) </li>
 </ol>
-<h1><a class="anchor" id="faq_sec"></a>
-FAQ</h1>
+<h2><a class="anchor" id="faq_sec"></a>
+FAQ</h2>
 <blockquote class="doxtable">
 <p>Why not just export a wavefront.obj file ? </p>
 </blockquote>
