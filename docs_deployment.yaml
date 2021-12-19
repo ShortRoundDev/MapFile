@@ -1,0 +1,18 @@
+alerts:
+- rule: DEPLOYMENT_FAILED
+- rule: DOMAIN_FAILED
+domains:
+- domain: docs.shortround.dev
+  type: PRIMARY
+name: map-file-dll-docs
+region: nyc
+static_sites:
+- environment_slug: html
+  github:
+    branch: master
+    deploy_on_push: true
+    repo: ShortRoundDev/MapFile
+  name: map-file-dll-docs
+  routes:
+  - path: /
+  source_dir: /docs/html
