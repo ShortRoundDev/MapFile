@@ -25,6 +25,8 @@
 var NAVTREE =
 [
   [ "MapFile.dll", "index.html", [
+    [ "Introduction", "index.html#intro_sec", null ],
+    [ "Installation", "index.html#intallation_sec", null ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
@@ -47,7 +49,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_map_file_8h.html"
+"_map_file_8h_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
