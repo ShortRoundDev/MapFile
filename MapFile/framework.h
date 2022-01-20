@@ -18,7 +18,11 @@
 
 #ifdef __cplusplus
 	#define CONSTEXPR constexpr
-	#define PRIVATE extern "C"
+	#ifdef __TEST
+		#define PRIVATE DLL
+	#else
+		#define PRIVATE
+	#endif
 #else
 	#define CONSTEXPR const
 	#define PRIVATE

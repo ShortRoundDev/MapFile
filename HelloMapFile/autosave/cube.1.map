@@ -1,0 +1,6 @@
+// Game: Generic
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+}

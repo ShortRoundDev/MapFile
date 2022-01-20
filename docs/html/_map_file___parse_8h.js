@@ -10,6 +10,7 @@ var _map_file___parse_8h =
     [ "MF_ParseKeyValuePair", "_map_file___parse_8h.html#a11292187d45b60a829a6e569644be0da", null ],
     [ "MF_ParseTextureParameters", "_map_file___parse_8h.html#ab05936e92a052d46a08fe485f95a9ed1", null ],
     [ "MF_ParseVertex", "_map_file___parse_8h.html#a0e2b084ec5baa5878ed888650f897c83", null ],
+    [ "MF_Test", "_map_file___parse_8h.html#a466a60d5fb1f3b5ca6d57dd95d2e0f2e", null ],
     [ "MF_PARSE_ENT_NO_ATT_CODE", "_map_file___parse_8h.html#a339aa2c4b037fa235e1f827a4dc1921e", null ],
     [ "MF_PARSE_ENT_NO_ATT_MSG", "_map_file___parse_8h.html#a1ebcae30b1ef1135455cf8b0cee20310", null ],
     [ "MF_PARSE_ERR", "_map_file___parse_8h.html#ac6ce68aa600899320adbd4f52c3b5870", null ],

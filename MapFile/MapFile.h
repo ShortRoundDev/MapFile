@@ -138,3 +138,4 @@
 #include "MapFile_List.h"
 #include "MapFile_Lex.h"
 #include "MapFile_Parse.h"
+#include "MapFile_Geometry.h"

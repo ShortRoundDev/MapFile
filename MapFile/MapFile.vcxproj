@@ -120,7 +120,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;MAPFILE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>__TEST;_DEBUG;MAPFILE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="MapFile.h" />
+    <ClInclude Include="MapFile_Geometry.h" />
     <ClInclude Include="MapFile_Lex.h" />
     <ClInclude Include="MapFile_List.h" />
     <ClInclude Include="MapFile_Parse.h" />
@@ -162,6 +163,7 @@
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="MapFile.cpp" />
+    <ClCompile Include="MapFile_Geometry.cpp" />
     <ClCompile Include="MapFile_Lex.cpp" />
     <ClCompile Include="MapFile_List.cpp" />
     <ClCompile Include="MapFile_Parse.cpp" />

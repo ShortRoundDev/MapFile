@@ -18,7 +18,7 @@ typedef struct MF_TextureParameters
     /** \brief     The scale (y) of the texture */
     float scaleY;
 } MF_TextureParameters_t;
-/** \brief     A vertex of 4 floats.
+/** \brief     A vector of 4 floats.
  * 
  *  \details   This was designed to be closely cast-able to other vec4
  *             representations. Though no face in the brush actually contains 4 components,
@@ -27,10 +27,10 @@ typedef struct MF_TextureParameters
  *             transformation matrices as well as packing reasons). The last component is
  *             initialized to 0
  *  
- *             The floats can be accessed by component (vertex.x, vertex.y, vertex.z, vertex.w)
- *             or through the comp array (vertex.comp[0], vertex.comp[1], etc.)
+ *             The floats can be accessed by component (vector.x, vector.y, vector.z, vector.w)
+ *             or through the comp array (vector.comp[0], vector.comp[1], etc.)
  */
-typedef union MF_Vertex
+typedef union MF_Vector4
 {
     
     struct // I think this is UB in C, but not C++
@@ -41,14 +41,30 @@ typedef union MF_Vertex
         float w;
     };
     float comp[4]; // components
-} MF_Vertex_t;
+} MF_Vector4_t;
+
+typedef union MF_Vector2
+{
+    struct {
+        float x;
+        float y;
+    };
+
+    struct {
+        float u;
+        float v;
+    };
+    
+    float comp[2];
+} MF_Vector2_t, MF_UV_t;
+
 /** \brief     A single face of the brush, which includes the points of the brush as well as
  *             texture information for that face
  */
 typedef struct MF_Face
 {
     /** \brief     The 3 vertices which make up the triangle along the bounding plane */
-    union MF_Vertex facePoints[3];
+    MF_Vector4_t facePoints[3];
     /** \brief     The name of the texture */
     char* texture;
     /** \brief     A set of parameters which make up information about the UV Map of the triangle
@@ -56,7 +72,7 @@ typedef struct MF_Face
      *  \details   Unfortunately, because there are no actual mesh triangles in the map brush,
      *             these parameters are angles and pixel offsets rather than strict UV coordinates
      */
-    struct MF_TextureParameters textureParameters;
+    MF_TextureParameters_t textureParameters;
 } MF_Face_t;
 /** \brief     A brush. A wall, floor, ceiling, slope, etc.
  *
@@ -71,7 +87,7 @@ typedef struct MF_Brush
     /** \brief     The number of faces in the brush */
     size_t totalFaces;
     /** \brief     A contiguous set of faces in memory */
-    struct MF_Face* faces;
+    MF_Face_t* faces;
 } MF_Brush_t;
 /** \brief     An attribute in the entity definition. Both Key and Value are allocated with MF_Alloc,
  *             and so need to be destroyed individually. */
@@ -105,11 +121,11 @@ typedef struct MF_Entity
     /** \brief     The total number of Key Value Pairs in the attributes pointer */
     size_t totalAttributes;
     /** \brief     A contiguous set of key value pairs in memory */
-    struct MF_KeyValuePair* attributes;
+    MF_KeyValuePair_t* attributes;
     /** \brief     The total number of brushes in the brushes pointer */
     size_t totalBrushes;
     /** \brief     A contiguous set of brushes in memory */
-    struct MF_Brush* brushes;
+    MF_Brush_t* brushes;
 } MF_Entity_t;
 /** \brief     The main map struct. */
 typedef struct MF_Map
@@ -117,5 +133,5 @@ typedef struct MF_Map
     /** \brief     The total number of entities in the items pointer */
     size_t totalItems;
     /** \brief     A contiguous set of entities in memory */
-    struct MF_Entity* items;
+    MF_Entity_t* items;
 } MF_Map_t;

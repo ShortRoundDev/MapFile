@@ -7,11 +7,11 @@
 #include "framework.h"
 
 /** \brief      A single text node in a linked list of text nodes. next = null at the end of the list */
-struct MF_Lexeme
+typedef struct MF_Lexeme
 {
 	char* lexeme;
 	struct MF_Lexeme* next;
-};
+} MF_Lexeme_t;
 
 /** \brief                    Allocates a new lexeme struct and a text buffer for it, then copies the provided text
  *                            into that buffer
@@ -29,9 +29,9 @@ PRIVATE struct MF_Lexeme* MF_NewLexeme(const char* text, size_t stringLength);
  *  \param[In] stringLength   The length of the text
  *  \return                   A pointer to the newly allocated lexeme
  */
-PRIVATE struct MF_Lexeme* MF_AttachLexeme(struct MF_Lexeme* current, const char* text, size_t stringLength);
+PRIVATE struct MF_Lexeme* MF_AttachLexeme(MF_Lexeme_t* current, const char* text, size_t stringLength);
 
 /** \brief            Destroys every node (and their text buffers) in the lexeme list and frees them
  *  \param[In] head   The head of the lexeme list
  */
-DLL void MF_DestroyLexemeList(struct MF_Lexeme* head);
+DLL void MF_DestroyLexemeList(MF_Lexeme_t* head);

@@ -13,6 +13,7 @@ CONSTEXPR uint32_t MF_LEX_ERR = 0x01000000;
 #else
 #define MF_LEX_ERR (0x01000000)
 #endif
+
 CONSTEXPR uint32_t MF_LEX_UNREC_STR_CODE = MF_LEX_ERR | 0x01;
 CONSTEXPR char MF_LEX_UNREC_STR_MSG[] = "Unrecognized token in string!";
 
@@ -21,7 +22,7 @@ CONSTEXPR char MF_LEX_UNREC_STR_MSG[] = "Unrecognized token in string!";
  *  \return     A pointer to the linked list of lexemes
  */
 _Success_(return)
-DLL struct MF_Lexeme* MF_Lex(_In_ const char* string);
+DLL MF_Lexeme_t* MF_Lex(_In_ const char* string);
 
 /** \brief      If the input string points to the start of a string of the format
  *              "string"

@@ -42,7 +42,7 @@ CONSTEXPR char MF_PARSE_MISALIGNED_ENT_MSG[] = "Expected { while parsing ent";
  *  \return           True on success, False on failure
  */
 _Success_(return)
-DLL BOOL MF_Parse(_In_ char* text, _Out_ struct MF_Map* map);
+DLL BOOL MF_Parse(_In_ char* text, _Out_ MF_Map_t* map);
 
 /** \brief               Parses an entity into the provided MF_Entity*
  *  \param[In]  lexemes  The lexeme node of the opening bracket of the Entity
@@ -50,7 +50,7 @@ DLL BOOL MF_Parse(_In_ char* text, _Out_ struct MF_Map* map);
  *  \return              If successful, returns a pointer to the next lexeme node after the entity definition. Else, returns NULL
  */
 _Success_(return != NULL)
-PRIVATE struct MF_Lexeme* MF_ParseEntity(_In_ struct MF_Lexeme* lexemes, _Out_ struct MF_Entity* entity);
+PRIVATE MF_Lexeme_t* MF_ParseEntity(_In_ MF_Lexeme_t* lexemes, _Out_ MF_Entity_t* entity);
 
 /** \brief                    Parses a key-value-pair from the entity attribute list into the provided MF_KeyValuePair*
  *  \param[In]  lexemes       The lexeme node of the key
@@ -58,7 +58,7 @@ PRIVATE struct MF_Lexeme* MF_ParseEntity(_In_ struct MF_Lexeme* lexemes, _Out_ s
  *  \return                   If successful, returns a pointer to the next lexeme node after the key value pair definition. Else, returns NULL
  */
 _Success_(return != NULL)
-PRIVATE struct MF_Lexeme* MF_ParseKeyValuePair(_In_ struct MF_Lexeme* lexemes, _Out_ struct MF_KeyValuePair* keyValuePair);
+PRIVATE MF_Lexeme_t* MF_ParseKeyValuePair(_In_ MF_Lexeme_t* lexemes, _Out_ MF_KeyValuePair_t* keyValuePair);
 
 /** \brief               Parses a brush into the provided MF_Brush*
  *  \param[In]  lexemes  The lexeme node of the opening parenthetical of the first face of the brush
@@ -66,7 +66,7 @@ PRIVATE struct MF_Lexeme* MF_ParseKeyValuePair(_In_ struct MF_Lexeme* lexemes, _
  *  \return              If successful, returns a pointer to the end bracket of the brush definition. Else, returns NULL
  */
 _Success_(return != NULL)
-PRIVATE struct MF_Lexeme* MF_ParseBrush(_In_ struct MF_Lexeme* lexemes, _Out_ struct MF_Brush* brush);
+PRIVATE MF_Lexeme_t* MF_ParseBrush(_In_ MF_Lexeme_t* lexemes, _Out_ MF_Brush_t* brush);
 
 /** \brief              Parses a brush face into the provided MF_Face*
  *  \param[In]  lexemes  The lexeme node of the opening parenthetical of the first vertex of the face
@@ -74,7 +74,7 @@ PRIVATE struct MF_Lexeme* MF_ParseBrush(_In_ struct MF_Lexeme* lexemes, _Out_ st
  *  \return             If successful, returns a pointer to the newline lexeme separating the current face from the next line
  */
 _Success_(return != NULL)
-PRIVATE struct MF_Lexeme* MF_ParseFace(_In_ struct MF_Lexeme* lexemes, _Out_ struct MF_Face* face);
+PRIVATE MF_Lexeme_t* MF_ParseFace(_In_ MF_Lexeme_t* lexemes, _Out_ MF_Face_t* face);
 
 /** \brief               Parses a face vertex into the provided MF_Vertex*
  *  \param[In]  lexemes  A pointer to the opening parenthetical of ther vertex
@@ -83,7 +83,7 @@ PRIVATE struct MF_Lexeme* MF_ParseFace(_In_ struct MF_Lexeme* lexemes, _Out_ str
  *                       parenthetical of the Vertex
  */
 _Success_(return != NULL)
-PRIVATE struct MF_Lexeme* MF_ParseVertex(_In_ struct MF_Lexeme* lexemes, _Out_ union MF_Vertex* vertex);
+PRIVATE MF_Lexeme_t* MF_ParseVertex(_In_ MF_Lexeme_t* lexemes, _Out_ union MF_Vector4* vertex);
 
 /** \brief                        Parses a set of texture parameters into the provided MF_TextureParameters*
  *  \param[In]  lexemes           The lexeme node of the first texture parameter (offsetX)
@@ -92,7 +92,7 @@ PRIVATE struct MF_Lexeme* MF_ParseVertex(_In_ struct MF_Lexeme* lexemes, _Out_ u
                                   simply iterates through the list without type checking and has no failure state.
  */
 _Success_(return != NULL)
-PRIVATE struct MF_Lexeme* MF_ParseTextureParameters(_In_ struct MF_Lexeme* lexemes, _Out_ struct MF_TextureParameters* textureParameters);
+PRIVATE MF_Lexeme_t* MF_ParseTextureParameters(_In_ MF_Lexeme_t* lexemes, _Out_ MF_TextureParameters_t* textureParameters);
 
 /** \brief              Counts the number of top level open-close brackets starting at the input lexeme.
  *                      Does not count nested brackets. This function is also good for counting the number
@@ -101,7 +101,7 @@ PRIVATE struct MF_Lexeme* MF_ParseTextureParameters(_In_ struct MF_Lexeme* lexem
  *  \return             The number of open-close bracket pairs
  */
 _Success_(return);
-PRIVATE int MF_CountEntities(_In_ struct MF_Lexeme* lexemes);
+PRIVATE int MF_CountEntities(_In_ MF_Lexeme_t* lexemes);
 
 /** \brief              Counts the number of Key Value Pairs at the given hierarchy of the lexeme list.
  *                      Halts when it encounters to first opening bracket {, or end of the list
@@ -109,7 +109,7 @@ PRIVATE int MF_CountEntities(_In_ struct MF_Lexeme* lexemes);
  *  \return             The number of attributes in the entity. 0 is bad (all entities need at least a classname).
  */
 _Success_(return);
-PRIVATE int MF_CountAttributes(_In_ struct MF_Lexeme* lexemes);
+PRIVATE int MF_CountAttributes(_In_ MF_Lexeme_t* lexemes);
 
 /** \brief              Counts the number of faces in a brush. Gets the number of opening parentheses (
  *                      that occur immediately after a newline character, stopping when an opening bracket
@@ -118,4 +118,4 @@ PRIVATE int MF_CountAttributes(_In_ struct MF_Lexeme* lexemes);
  *  \return             The number of faces in the brush
  */
 _Success_(return);
-PRIVATE int MF_CountFaces(_In_ struct MF_Lexeme* lexemes);
+PRIVATE int MF_CountFaces(_In_ MF_Lexeme_t* lexemes);

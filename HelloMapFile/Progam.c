@@ -1,4 +1,5 @@
 #include "MapFile.h"
+#include <stdlib.h>
 #include <stdio.h>
 
 /* runs MF_Parse and prints the first attribute of the first entity,
@@ -8,9 +9,26 @@ void parse_and_print(char* text);
 int main(int argc, char** argv)
 {
 	MF_Init();
+
+	FILE* fp;
+	if (fopen_s(&fp, "Data\\Weird.map", "r")) {
+		return;
+	}
+	fseek(fp, 0, SEEK_END);
+	size_t size = ftell(fp);
 	
-	parse_and_print("\"classname\" \"entity\"}");  // missing opening bracket; should print error
-	parse_and_print("{\"classname\" \"entity\"}"); // correct format
+	fseek(fp, 0, SEEK_SET);
+	char* buffer = (char*)calloc(size, sizeof(char));
+	if (buffer == NULL) {
+		return;
+	}
+	fread_s(buffer, size, sizeof(char), size, fp);
+
+	fclose(fp);
+
+	MF_Map_t map;
+	BOOL success = MF_Parse(buffer, &map);
+	success = MF_GenerateMesh(&map);
 
 	return 0;
 }

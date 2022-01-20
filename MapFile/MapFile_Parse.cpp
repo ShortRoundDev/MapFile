@@ -5,7 +5,7 @@
 #include <cctype>
 #include <math.h>
 
-#define WHITE_OR_COMMENT(s) ((s)[0] == '\n' || ((s)[0] == '/' && (s)[1] == '/'))
+#define WHITE_OR_COMMENT(s) (((s)[0] == '\n' || (s)[0] == '\r') || ((s)[0] == '/' && (s)[1] == '/'))
 
 _Success_(return)
 BOOL MF_Parse(_In_ char* text, _Out_ MF_Map* map)
@@ -208,7 +208,7 @@ MF_Lexeme* MF_ParseFace(_In_ MF_Lexeme * lexemes, _Out_ MF_Face * face)
 }
 
 _Success_(return != NULL)
-MF_Lexeme* MF_ParseVertex(_In_ MF_Lexeme * lexemes, _Out_ MF_Vertex * vertex)
+MF_Lexeme* MF_ParseVertex(_In_ MF_Lexeme * lexemes, _Out_ MF_Vector4 * vertex)
 {
 	MF_Lexeme* cursor = lexemes;
 	int i = 0;
