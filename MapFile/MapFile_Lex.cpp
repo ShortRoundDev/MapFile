@@ -2,12 +2,13 @@
 
 #include <regex>
 
-_Success_(return)
+_Success_(return != NULL)
 MF_Lexeme* MF_Lex(_In_ const char* string)
 {
     MF_Lexeme* list = NULL;
     MF_Lexeme* cursor = NULL;
     char* c = (char*)string;
+    int i = 0;
     while (*c != NULL) {
         char* token = NULL;
         size_t size = 0;
@@ -49,17 +50,19 @@ MF_Lexeme* MF_Lex(_In_ const char* string)
 
         if (size == 0) {
             MF_Raise(MF_LEX_UNREC_STR_CODE, MF_LEX_UNREC_STR_MSG);
-            MF_DestroyLexemeList(list);
+            MF_DestroyLexChain(list);
             return NULL;
         }
     append:
         if (list == NULL) {
             list = MF_NewLexeme(token, size);
             cursor = list;
+            i++;
         }
         else
         {
             cursor = MF_AttachLexeme(cursor, token, size);
+            i++;
         }
         c += size;
     }
@@ -86,7 +89,7 @@ BOOL MF_LexIsWhitespace(char c)
 }
 
 
-_Success_(return)
+_Success_(return != 0)
 size_t MF_LexString(_In_ char* string)
 {
     if (*string != '"') {
@@ -116,7 +119,7 @@ size_t MF_LexString(_In_ char* string)
     return size + 1; // + 1 for the end "
 }
 
-_Success_(return)
+_Success_(return != 0)
 size_t MF_LexNumber(_In_ char* string)
 {
     size_t size = 0;
@@ -133,7 +136,7 @@ BOOL MF_LexIsNumber(char c)
     return (c >= '0' && c <= '9') || c == '.' || c == '-';
 }
 
-_Success_(return)
+_Success_(return != 0)
 size_t MF_LexComment(_In_ char* string)
 {
     if (string[0] != '/' || string[1] != '/') {
@@ -148,7 +151,7 @@ size_t MF_LexComment(_In_ char* string)
     return t;
 }
 
-_Success_(return)
+_Success_(return != 0)
 size_t MF_LexWhitespacePaddedString(_In_ char* string)
 {
     size_t t = 0;
@@ -157,4 +160,18 @@ size_t MF_LexWhitespacePaddedString(_In_ char* string)
         string++;
     }
     return t;
+}
+
+BOOL MF_DestroyLexChain(_In_ MF_Lexeme_t* lexemeChain) {
+    if (lexemeChain == NULL) {
+        return TRUE;
+    }
+    MF_DestroyLexChain(lexemeChain->next);
+    MF_Free(lexemeChain);
+    return TRUE;
+}
+
+BOOL MF_DestroyLexeme(_In_ MF_Lexeme_t* lexeme) {
+    MF_Free(lexeme);
+    return TRUE;
 }

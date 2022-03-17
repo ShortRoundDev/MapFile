@@ -21,7 +21,7 @@ CONSTEXPR char MF_LEX_UNREC_STR_MSG[] = "Unrecognized token in string!";
  *  \param[In]  The mapfile text input to lex
  *  \return     A pointer to the linked list of lexemes
  */
-_Success_(return)
+_Success_(return != NULL)
 DLL MF_Lexeme_t* MF_Lex(_In_ const char* string);
 
 /** \brief      If the input string points to the start of a string of the format
@@ -30,9 +30,8 @@ DLL MF_Lexeme_t* MF_Lex(_In_ const char* string);
  *  \param[In]  The cursor within the map text to analyze</param>
  *  \return     The size of the lexeme
  */
-_Success_(return)
+_Success_(return != 0)
 PRIVATE size_t MF_LexString(_In_ char* string);
-
 
 /** \brief              If the input string points to the start of a number string
  *                      (which allows - and . symbols), then MF_LexNumber returns the
@@ -40,7 +39,7 @@ PRIVATE size_t MF_LexString(_In_ char* string);
  *  \param[In] string   The cursor within the map text to analyze
  *  \return             The size of the lexeme
  */
-_Success_(return)
+_Success_(return != 0)
 PRIVATE size_t MF_LexNumber(_In_ char* string);
 
 /** \brief             If the input string points to the start of a comment string of the
@@ -49,7 +48,7 @@ PRIVATE size_t MF_LexNumber(_In_ char* string);
  *  \param[In] string  The cursor within the map text to analyze</param>
  *  \return            The size of the lexeme
  */
-_Success_(return)
+_Success_(return != 0)
 PRIVATE size_t MF_LexComment(_In_ char* string);
 
 /** \brief             Returns the length of the lexeme ending with whitespace or a null terminator.
@@ -59,7 +58,7 @@ PRIVATE size_t MF_LexComment(_In_ char* string);
  *  \param[In] string  The cursor within the map text to analyze
  *  \return            The size of the lexeme
  */
-_Success_(return)
+_Success_(return != 0)
 PRIVATE size_t MF_LexWhitespacePaddedString(_In_ char* string);
 
 /** \brief             Returns true if the character is either { } ( ) or a newline (\n). Else, returns false
@@ -82,3 +81,7 @@ PRIVATE BOOL MF_LexIsWhitespace(char c);
  */
 _Success_(return)
 PRIVATE BOOL MF_LexIsNumber(char c);
+
+DLL BOOL MF_DestroyLexChain(_In_ MF_Lexeme_t* lexemeChain);
+
+PRIVATE BOOL MF_DestroyLexeme(_In_ MF_Lexeme_t* lexeme);

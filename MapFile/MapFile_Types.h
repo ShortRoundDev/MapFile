@@ -18,6 +18,8 @@ typedef struct MF_TextureParameters
     /** \brief     The scale (y) of the texture */
     float scaleY;
 } MF_TextureParameters_t;
+
+
 /** \brief     A vector of 4 floats.
  * 
  *  \details   This was designed to be closely cast-able to other vec4
@@ -30,18 +32,23 @@ typedef struct MF_TextureParameters
  *             The floats can be accessed by component (vector.x, vector.y, vector.z, vector.w)
  *             or through the comp array (vector.comp[0], vector.comp[1], etc.)
  */
-typedef union MF_Vector4
+typedef union MF_Vector3
 {
-    
     struct // I think this is UB in C, but not C++
     {
         float x;
         float y;
         float z;
-        float w;
     };
-    float comp[4]; // components
-} MF_Vector4_t;
+    float comp[3]; // components
+} MF_Vector3_t;
+
+/** \brief      A face computed from the intersections of the MF_Faces */
+typedef struct MF_GeoFace
+{
+    MF_Vector3_t* vertices;
+    int totalVertices;
+} MF_GeoFace_t;
 
 typedef union MF_Vector2
 {
@@ -64,7 +71,7 @@ typedef union MF_Vector2
 typedef struct MF_Face
 {
     /** \brief     The 3 vertices which make up the triangle along the bounding plane */
-    MF_Vector4_t facePoints[3];
+    MF_Vector3_t facePoints[3];
     /** \brief     The name of the texture */
     char* texture;
     /** \brief     A set of parameters which make up information about the UV Map of the triangle

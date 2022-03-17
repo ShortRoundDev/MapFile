@@ -10,6 +10,8 @@
 #include "MapFile_Types.h"
 #include "MapFile_List.h"
 
+// Have to #define in C because you can't | a const with another const. Has to be known at runtime (constexpr or #define)
+// This is probably a bad solution and I welcome contribution
 #ifdef __cplusplus
 CONSTEXPR uint32_t MF_PARSE_ERR = 0x02000000;
 #else
@@ -83,7 +85,7 @@ PRIVATE MF_Lexeme_t* MF_ParseFace(_In_ MF_Lexeme_t* lexemes, _Out_ MF_Face_t* fa
  *                       parenthetical of the Vertex
  */
 _Success_(return != NULL)
-PRIVATE MF_Lexeme_t* MF_ParseVertex(_In_ MF_Lexeme_t* lexemes, _Out_ union MF_Vector4* vertex);
+PRIVATE MF_Lexeme_t* MF_ParseVertex(_In_ MF_Lexeme_t* lexemes, _In_ union MF_Vector3* vertex);
 
 /** \brief                        Parses a set of texture parameters into the provided MF_TextureParameters*
  *  \param[In]  lexemes           The lexeme node of the first texture parameter (offsetX)
@@ -100,7 +102,7 @@ PRIVATE MF_Lexeme_t* MF_ParseTextureParameters(_In_ MF_Lexeme_t* lexemes, _Out_ 
  *  \param[In] lexemes  The lexeme to begin counting at
  *  \return             The number of open-close bracket pairs
  */
-_Success_(return);
+_Success_(return != 0)
 PRIVATE int MF_CountEntities(_In_ MF_Lexeme_t* lexemes);
 
 /** \brief              Counts the number of Key Value Pairs at the given hierarchy of the lexeme list.
@@ -108,7 +110,7 @@ PRIVATE int MF_CountEntities(_In_ MF_Lexeme_t* lexemes);
  *  \param[In] lexemes  The lexeme to begin counting at
  *  \return             The number of attributes in the entity. 0 is bad (all entities need at least a classname).
  */
-_Success_(return);
+_Success_(return != 0)
 PRIVATE int MF_CountAttributes(_In_ MF_Lexeme_t* lexemes);
 
 /** \brief              Counts the number of faces in a brush. Gets the number of opening parentheses (
@@ -117,5 +119,15 @@ PRIVATE int MF_CountAttributes(_In_ MF_Lexeme_t* lexemes);
  *  \param[In] lexemes  The lexeme to begin counting at
  *  \return             The number of faces in the brush
  */
-_Success_(return);
+_Success_(return != 0)
 PRIVATE int MF_CountFaces(_In_ MF_Lexeme_t* lexemes);
+
+DLL BOOL MF_DestroyMap(_In_ MF_Map_t* map);
+
+PRIVATE BOOL MF_DestroyEntity(_In_ MF_Entity_t* entity);
+
+PRIVATE BOOL MF_DestroyKeyValuePair(_In_ MF_KeyValuePair_t* kvp);
+
+PRIVATE BOOL MF_DestroyBrush(_In_ MF_Brush_t* brush);
+
+PRIVATE BOOL MF_DestroyFace(_In_ MF_Face_t* face);

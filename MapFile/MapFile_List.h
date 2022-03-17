@@ -9,7 +9,7 @@
 /** \brief      A single text node in a linked list of text nodes. next = null at the end of the list */
 typedef struct MF_Lexeme
 {
-	char* lexeme;
+	char lexeme[512];
 	struct MF_Lexeme* next;
 } MF_Lexeme_t;
 
@@ -34,4 +34,3 @@ PRIVATE struct MF_Lexeme* MF_AttachLexeme(MF_Lexeme_t* current, const char* text
 /** \brief            Destroys every node (and their text buffers) in the lexeme list and frees them
  *  \param[In] head   The head of the lexeme list
  */
-DLL void MF_DestroyLexemeList(MF_Lexeme_t* head);

@@ -4,8 +4,18 @@
 MF_AllocatorFunc MF_Alloc = NULL;
 MF_FreeFunc MF_Free = NULL;
 
+enum MF_FACE_ORIENTATION_DIRECTION {
+	MF_CW,
+	MF_CCW
+};
+
 THREAD_LOCAL uint32_t MF_Err = 0;
 THREAD_LOCAL char MF_ErrMessage[1024] = { 0 };
+THREAD_LOCAL MF_FACE_ORIENTATION_DIRECTION MF_FaceOrientation = MF_CCW;
+
+void* _MF_HeapAlloc(size_t size);
+
+void _MF_FreeHeap(void* mem);
 
 void MF_Init()
 {
@@ -13,9 +23,25 @@ void MF_Init()
 	MF_Free = free;
 }
 
+void* _MF_HeapAlloc(size_t size) {
+	return ::HeapAlloc(
+		GetProcessHeap(),
+		HEAP_ZERO_MEMORY,
+		size
+	);
+}
+
+void _MF_FreeHeap(void* mem) {
+	::HeapFree(GetProcessHeap(), NULL, mem);
+}
+
 void MF_SetAllocator(MF_AllocatorFunc allocFunc)
 {
 	MF_Alloc = allocFunc;
+}
+
+void MF_SetFaceOrientation(MF_FACE_ORIENTATION_DIRECTION direction) {
+	MF_FaceOrientation = direction;
 }
 
 void MF_SetFree(MF_FreeFunc freeFunc)

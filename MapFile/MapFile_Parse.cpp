@@ -3,6 +3,7 @@
 #include "MapFile_Lex.h"
 
 #include <cctype>
+#include <iostream>
 #include <math.h>
 
 #define WHITE_OR_COMMENT(s) (((s)[0] == '\n' || (s)[0] == '\r') || ((s)[0] == '/' && (s)[1] == '/'))
@@ -23,12 +24,11 @@ BOOL MF_Parse(_In_ char* text, _Out_ MF_Map* map)
 	map->totalItems = MF_CountEntities(lexemes);
 	if (map->totalItems == 0) {
 		MF_Raise(MF_PARSE_NO_ENTS_CODE, MF_PARSE_NO_ENTS_MSG);
-		MF_DestroyLexemeList(lexemes);
+		MF_DestroyLexChain(lexemes);
 		return false;
 	}
 	map->items = (MF_Entity*) MF_Alloc(sizeof(MF_Entity) * map->totalItems);
 	MF_Entity* entityCursor = map->items;
-	
 	while(cursor != NULL)
 	{
 		//newline or comment
@@ -50,7 +50,7 @@ BOOL MF_Parse(_In_ char* text, _Out_ MF_Map* map)
 		}
 		cursor = cursor->next;
 	}
-	MF_DestroyLexemeList(lexemes);
+	MF_DestroyLexChain(lexemes);
 	if (MF_Err) {
 		return false;
 	}
@@ -77,6 +77,11 @@ MF_Lexeme* MF_ParseEntity(_In_ MF_Lexeme * lexemes, _Out_ MF_Entity * entity)
 			continue;
 		}
 		cursor = MF_ParseKeyValuePair(cursor, kvpCursor);
+		
+		//Set special key "classname" pointer
+		if (!strcmp(kvpCursor->key, "classname")) {
+			entity->classname = kvpCursor->value;
+		}
 		kvpCursor++;
 		i++;
 	}
@@ -191,7 +196,7 @@ MF_Lexeme* MF_ParseFace(_In_ MF_Lexeme * lexemes, _Out_ MF_Face * face)
 	}
 
 	size_t texNameLength = strlen(cursor->lexeme);
-	face->texture = (char*)MF_Alloc(texNameLength) + 1; // + 1 for NULL terminator
+	face->texture = (char*)MF_Alloc(texNameLength + 1); // + 1 for NULL terminator
 	memset(face->texture, 0, texNameLength + 1);
 	memcpy(face->texture, cursor->lexeme, texNameLength);
 
@@ -208,7 +213,7 @@ MF_Lexeme* MF_ParseFace(_In_ MF_Lexeme * lexemes, _Out_ MF_Face * face)
 }
 
 _Success_(return != NULL)
-MF_Lexeme* MF_ParseVertex(_In_ MF_Lexeme * lexemes, _Out_ MF_Vector4 * vertex)
+MF_Lexeme* MF_ParseVertex(_In_ MF_Lexeme* lexemes, _In_ MF_Vector3* vertex)
 {
 	MF_Lexeme* cursor = lexemes;
 	int i = 0;
@@ -227,7 +232,7 @@ MF_Lexeme* MF_ParseVertex(_In_ MF_Lexeme * lexemes, _Out_ MF_Vector4 * vertex)
 		MF_Raise(MF_PARSE_REACHED_END_CODE, MF_PARSE_REACHED_END_MSG);
 		return NULL;
 	}
-	vertex->comp[3] = 0.0f; // init 4th to 0. using float4 for alignment
+
 	return cursor->next;
 }
 
@@ -251,7 +256,7 @@ MF_Lexeme* MF_ParseTextureParameters(_In_ MF_Lexeme * lexemes, _Out_ MF_TextureP
 	return lexemes->next; //newline
 }
 
-_Success_(return)
+_Success_(return != 0)
 int MF_CountEntities(_In_ MF_Lexeme* lexemes)
 {
 	int depth = 0;
@@ -275,7 +280,7 @@ int MF_CountEntities(_In_ MF_Lexeme* lexemes)
 	return total;
 }
 
-_Success_(return);
+_Success_(return != 0)
 int MF_CountAttributes(_In_ MF_Lexeme* lexemes)
 {
 	int x = 0;
@@ -301,7 +306,7 @@ int MF_CountAttributes(_In_ MF_Lexeme* lexemes)
 	return total;
 }
 
-_Success_(return);
+_Success_(return != 0)
 int MF_CountFaces(_In_ MF_Lexeme* lexemes)
 {
 	bool primed = false;
@@ -318,4 +323,46 @@ int MF_CountFaces(_In_ MF_Lexeme* lexemes)
 		lexemes = lexemes->next;
 	}
 	return total;
+}
+
+
+BOOL MF_DestroyMap(_In_ MF_Map_t* map) {
+	for (int i = 0; i < map->totalItems; i++) {
+		MF_DestroyEntity(map->items +i);
+	}
+	return TRUE;
+}
+
+BOOL MF_DestroyEntity(_In_ MF_Entity_t* entity) {
+	for (int i = 0; i < entity->totalAttributes; i++) {
+		MF_DestroyKeyValuePair(entity->attributes + i);
+	}
+
+	for (int i = 0; i < entity->totalBrushes; i++) {
+		MF_DestroyBrush(entity->brushes + i);
+	}
+	MF_Free(entity);
+	return TRUE;
+}
+
+BOOL MF_DestroyKeyValuePair(_In_ MF_KeyValuePair_t* kvp) {
+	MF_Free(kvp->key); // key and value are both alloc'd as well
+	MF_Free(kvp->value);
+	MF_Free(kvp);
+	return TRUE;
+}
+
+BOOL MF_DestroyBrush(_In_ MF_Brush_t* brush) {
+	for (int i = 0; i < brush->totalFaces; i++) {
+		MF_DestroyFace(brush->faces + i);
+	}
+	MF_Free(brush->faces);	// faces is allocated as one large array,
+							//so it needs to be freed only once
+	MF_Free(brush);
+	return TRUE;
+}
+
+BOOL MF_DestroyFace(_In_ MF_Face_t* face) {
+	MF_Free(face->texture);
+	return TRUE;
 }

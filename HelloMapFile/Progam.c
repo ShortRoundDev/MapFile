@@ -1,5 +1,10 @@
-#include "MapFile.h"
+#define _CRTDBG_MAPALLOC
+#define _CRTDBG_MAP_ALLOC
+
 #include <stdlib.h>
+#include <crtdbg.h>
+
+#include "MapFile.h"
 #include <stdio.h>
 
 /* runs MF_Parse and prints the first attribute of the first entity,
@@ -8,49 +13,47 @@ void parse_and_print(char* text);
 
 int main(int argc, char** argv)
 {
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+	_CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_DEBUG);
 	MF_Init();
 
-	FILE* fp;
-	if (fopen_s(&fp, "Data\\Weird.map", "r")) {
-		return;
+	HANDLE file = CreateFile(
+		L"Data\\Weird.map",
+		GENERIC_READ,
+		FILE_SHARE_READ,
+		NULL,
+		OPEN_EXISTING,
+		FILE_ATTRIBUTE_NORMAL,
+		NULL
+	);
+	if (file == INVALID_HANDLE_VALUE) {
+		return 1;
 	}
-	fseek(fp, 0, SEEK_END);
-	size_t size = ftell(fp);
-	
-	fseek(fp, 0, SEEK_SET);
-	char* buffer = (char*)calloc(size, sizeof(char));
-	if (buffer == NULL) {
-		return;
-	}
-	fread_s(buffer, size, sizeof(char), size, fp);
 
-	fclose(fp);
+	DWORD size = GetFileSize(file, NULL);
+	char* mapText = (char*)malloc(size + 1);
+	ZeroMemory(mapText, size + 1);
+	if (mapText == NULL) {
+		return;
+	}
+	if (!ReadFile(file, mapText, size, NULL, NULL)) {
+		return;
+	}
 
 	MF_Map_t map;
-	BOOL success = MF_Parse(buffer, &map);
-	success = MF_GenerateMesh(&map);
+	if (!MF_Parse(mapText, &map))
+	{
+		char msg[1024];
+		MF_GetErrMessage(msg);
+		//free(mapText);		
 
+		return;
+	}
+
+	free(mapText);
+	MF_DestroyMap(&map);
+
+	//MF_Mesh_t* mesh;
+	//MF_GenerateMesh(&map, &mesh);
 	return 0;
-}
-
-void parse_and_print(char* text)
-{
-	MF_Map_t map;
-	BOOL success = MF_Parse(text, &map);
-	if (success) {
-		printf("Success!\n");
-		printf("Total Entities: %zu\n", map.totalItems);
-
-		MF_KeyValuePair_t attr1 = map.items[0].attributes[0];
-
-		printf("Entity #1 attribute: %s = %s\n\n", attr1.key, attr1.value);
-	}
-	else {
-		printf("Failure!\n");
-		int error_code = MF_GetErrCode();
-		char buffer[1024] = { 0 };
-		MF_GetErrMessage(buffer);
-		printf("Error [0x%x]: %s\n\n", error_code, buffer);
-	}
-	MF_ResetErr();
 }

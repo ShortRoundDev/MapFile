@@ -38,12 +38,12 @@ extern void (*MF_Free)(void*);
 /** \brief                 Sets a global allocator function. MF_Init defaults this to malloc
  *  \param[In] allocFunc   The function to use as the global allocator
  */
-DLL void MF_SetAllocator(void* (*allocFunc)(void*));
+DLL void MF_SetAllocator(void* (*allocFunc)(size_t));
 
 /** \brief                 Set a global deallocator function. MF_Init defaults this to free
  *  \param[In] freeFunc    The function to use as the global deallocator
  */
-DLL void MF_SetFree(void (*freeFunc)(size_t));
+DLL void MF_SetFree(void (*freeFunc)(void*));
 #pragma endregion
 
 #pragma region Error
