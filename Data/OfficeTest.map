@@ -1,0 +1,313 @@
+// Game: Generic
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures;textures/Forest Cliff;textures/Forest Dirt;textures/Forest Grass;textures/Forest Moss;textures/Forest Mud;textures/Forest Road;textures/Forest Rock;textures/Forest Soil;textures/Forest WetMud;textures/brick;textures/carpet;textures/concrete;textures/metal;textures/nature;textures/paint;textures/roof;textures/tile;textures/wood"
+// brush 0
+{
+( -64 -144 -48 ) ( -64 -143 -48 ) ( -64 -144 -47 ) carpet/carpetfloorblack 80 -32 0 1 1
+( -64 -224 -48 ) ( -64 -224 -47 ) ( -63 -224 -48 ) carpet/carpetfloorblack 0 -32 0 1 1
+( -64 -144 -32 ) ( -63 -144 -32 ) ( -64 -143 -32 ) carpet/carpetfloorblack 0 -80 0 1 1
+( 64 -16 0 ) ( 64 -15 0 ) ( 65 -16 0 ) carpet/carpetfloorblack 0 -80 0 1 1
+( 64 384 -16 ) ( 65 384 -16 ) ( 64 384 -15 ) carpet/carpetfloorblack 0 -32 0 1 1
+( 320 -16 -16 ) ( 320 -16 -15 ) ( 320 -15 -16 ) carpet/carpetfloorblack 80 -32 0 1 1
+}
+// brush 1
+{
+( -64 -224 128 ) ( -64 -192 0 ) ( -64 -192 128 ) paint/plasterwallwhite 0 0 0 1 1
+( 64 -224 128 ) ( -64 -224 0 ) ( -64 -224 128 ) paint/plasterwallpink 0 0 0 1 1
+( 64 -192 0 ) ( -64 -224 0 ) ( 64 -224 0 ) paint/plasterwallwhite 0 0 0 1 1
+( 64 -192 128 ) ( -64 -224 128 ) ( -64 -192 128 ) paint/plasterwallwhite 0 0 0 1 1
+( 64 -192 128 ) ( -64 -192 0 ) ( 64 -192 0 ) paint/plasterwallwhite 0 0 0 1 1
+( 64 -192 128 ) ( 64 -224 0 ) ( 64 -224 128 ) paint/plasterwallwhite 0 0 0 1 1
+}
+// brush 2
+{
+( 192 -224 128 ) ( 192 -192 0 ) ( 192 -192 128 ) paint/plasterwallwhite 0 0 0 1 1
+( 320 -224 128 ) ( 192 -224 0 ) ( 192 -224 128 ) paint/plasterwallpink 0 0 0 1 1
+( 320 -192 0 ) ( 192 -224 0 ) ( 320 -224 0 ) paint/plasterwallwhite 0 0 0 1 1
+( 320 -192 128 ) ( 192 -224 128 ) ( 192 -192 128 ) paint/plasterwallwhite 0 0 0 1 1
+( 320 -192 128 ) ( 192 -192 0 ) ( 320 -192 0 ) paint/plasterwallwhite 0 0 0 1 1
+( 736 -192 128 ) ( 736 -224 0 ) ( 736 -224 128 ) paint/plasterwallbrown2 0 0 0 1 1
+}
+// brush 3
+{
+( 288 -192 128 ) ( 288 224 0 ) ( 288 224 128 ) paint/plasterwallwhite 0 0 0 1 1
+( 320 -192 128 ) ( 288 -192 0 ) ( 288 -192 128 ) paint/plasterwallwhite 0 0 0 1 1
+( 320 224 0 ) ( 288 -192 0 ) ( 320 -192 0 ) paint/plasterwallwhite 0 0 0 1 1
+( 320 224 128 ) ( 288 -192 128 ) ( 288 224 128 ) paint/plasterwallwhite 0 0 0 1 1
+( 320 384 128 ) ( 288 384 0 ) ( 320 384 0 ) paint/plasterwallwhite 0 0 0 1 1
+( 320 224 128 ) ( 320 -192 0 ) ( 320 -192 128 ) paint/plasterwallwhite 0 0 0 1 1
+}
+// brush 4
+{
+( -64 352 128 ) ( -64 384 0 ) ( -64 384 128 ) paint/plasterwallwhite -160 0 0 1 1
+( 288 352 128 ) ( -64 352 0 ) ( -64 352 128 ) paint/plasterwallwhite 0 0 0 1 1
+( 288 384 0 ) ( -64 352 0 ) ( 288 352 0 ) paint/plasterwallwhite 0 160 0 1 1
+( 288 384 128 ) ( -64 352 128 ) ( -64 384 128 ) paint/plasterwallwhite 0 160 0 1 1
+( 288 384 128 ) ( -64 384 0 ) ( 288 384 0 ) paint/plasterwallwhite 0 0 0 1 1
+( 288 384 128 ) ( 288 352 0 ) ( 288 352 128 ) paint/plasterwallwhite -160 0 0 1 1
+}
+// brush 5
+{
+( -64 -192 128 ) ( -64 192 0 ) ( -64 192 128 ) paint/plasterwallwhite 0 0 0 1 1
+( -32 -192 128 ) ( -64 -192 0 ) ( -64 -192 128 ) paint/plasterwallwhite 0 0 0 1 1
+( -32 192 0 ) ( -64 -192 0 ) ( -32 -192 0 ) paint/plasterwallwhite 0 0 0 1 1
+( -32 192 128 ) ( -64 -192 128 ) ( -64 192 128 ) paint/plasterwallwhite 0 0 0 1 1
+( -32 352 128 ) ( -64 352 0 ) ( -32 352 0 ) paint/plasterwallwhite 0 0 0 1 1
+( -32 192 128 ) ( -32 -192 0 ) ( -32 -192 128 ) paint/plasterwallwhite 0 0 0 1 1
+}
+// brush 6
+{
+( -64 -288 -32 ) ( -64 -287 -32 ) ( -64 -288 -31 ) carpet/carpetfloorred 0 0 0 1 1
+( -64 -384 -32 ) ( -64 -384 -31 ) ( -63 -384 -32 ) carpet/carpetfloorred 0 0 0 1 1
+( -64 -288 -32 ) ( -63 -288 -32 ) ( -64 -287 -32 ) carpet/carpetfloorred 0 0 0 1 1
+( 320 -224 0 ) ( 320 -223 0 ) ( 321 -224 0 ) carpet/carpetfloorred 0 0 0 1 1
+( 320 -224 0 ) ( 321 -224 0 ) ( 320 -224 1 ) carpet/carpetfloorred 0 0 0 1 1
+( 416 -224 0 ) ( 416 -224 1 ) ( 416 -223 0 ) carpet/carpetfloorred 0 0 0 1 1
+}
+// brush 7
+{
+( -64 -384 128 ) ( -64 -224 0 ) ( -64 -224 128 ) paint/plasterwallpink 0 0 0 1 1
+( -32 -384 128 ) ( -64 -384 0 ) ( -64 -384 128 ) paint/plasterwallpink 0 0 0 1 1
+( -32 -224 0 ) ( -64 -384 0 ) ( -32 -384 0 ) paint/plasterwallpink 0 0 0 1 1
+( -32 -224 128 ) ( -64 -384 128 ) ( -64 -224 128 ) paint/plasterwallpink 0 0 0 1 1
+( -32 -224 128 ) ( -64 -224 0 ) ( -32 -224 0 ) paint/plasterwallpink 0 0 0 1 1
+( -32 -224 128 ) ( -32 -384 0 ) ( -32 -384 128 ) paint/plasterwallpink 0 0 0 1 1
+}
+// brush 8
+{
+( -64 -416 128 ) ( -64 -384 0 ) ( -64 -384 128 ) paint/plasterwallpink 0 0 0 1 1
+( 320 -416 128 ) ( -64 -416 0 ) ( -64 -416 128 ) paint/plasterwallpink 0 0 0 1 1
+( 320 -384 0 ) ( -64 -416 0 ) ( 320 -416 0 ) paint/plasterwallpink 0 0 0 1 1
+( 320 -384 128 ) ( -64 -416 128 ) ( -64 -384 128 ) paint/plasterwallpink 0 0 0 1 1
+( 320 -384 128 ) ( -64 -384 0 ) ( 320 -384 0 ) paint/plasterwallpink 0 0 0 1 1
+( 736 -384 128 ) ( 736 -416 0 ) ( 736 -416 128 ) paint/plasterwallbrown2 0 0 0 1 1
+}
+// brush 9
+{
+( 736 -416 0 ) ( 736 -224 -32 ) ( 736 -224 0 ) carpet/carpetfloorwhite 0 0 0 1 1
+( 928 -640 0 ) ( 736 -640 -32 ) ( 736 -640 0 ) carpet/carpetfloorwhite 0 0 0 1 1
+( 928 -224 -32 ) ( 736 -416 -32 ) ( 928 -416 -32 ) carpet/carpetfloorwhite 0 0 0 1 1
+( 928 -224 0 ) ( 736 -416 0 ) ( 736 -224 0 ) carpet/carpetfloorwhite 0 0 0 1 1
+( 928 32 0 ) ( 736 32 -32 ) ( 928 32 -32 ) carpet/carpetfloorwhite 0 0 0 1 1
+( 1536 -224 0 ) ( 1536 -416 -32 ) ( 1536 -416 0 ) carpet/carpetfloorwhite 0 0 0 1 1
+}
+// brush 10
+{
+( 704 -672 128 ) ( 704 -416 0 ) ( 704 -416 128 ) paint/plasterwallbrown2 0 0 0 1 1
+( 736 -672 128 ) ( 704 -672 0 ) ( 704 -672 128 ) paint/plasterwallbrown2 0 0 0 1 1
+( 736 -416 0 ) ( 704 -672 0 ) ( 736 -672 0 ) paint/plasterwallbrown2 0 0 0 1 1
+( 736 -416 160 ) ( 704 -672 160 ) ( 704 -416 160 ) paint/plasterwallbrown2 0 0 0 1 1
+( 736 -416 128 ) ( 704 -416 0 ) ( 736 -416 0 ) paint/plasterwallbrown2 0 0 0 1 1
+( 736 -416 128 ) ( 736 -672 0 ) ( 736 -672 128 ) paint/plasterwallbrown2 0 0 0 1 1
+}
+// brush 11
+{
+( 736 -672 128 ) ( 736 -640 0 ) ( 736 -640 128 ) paint/plasterwallbrown2 0 0 0 1 1
+( 1120 -672 128 ) ( 736 -672 0 ) ( 736 -672 128 ) paint/plasterwallbrown2 0 0 0 1 1
+( 1120 -640 0 ) ( 736 -672 0 ) ( 1120 -672 0 ) paint/plasterwallbrown2 0 0 0 1 1
+( 1120 -640 224 ) ( 736 -672 224 ) ( 736 -640 224 ) paint/plasterwallbrown2 0 0 0 1 1
+( 1120 -640 128 ) ( 736 -640 0 ) ( 1120 -640 0 ) paint/plasterwallbrown2 0 0 0 1 1
+( 1568 -640 128 ) ( 1568 -672 0 ) ( 1568 -672 128 ) paint/plasterwallbrown2 0 0 0 1 1
+}
+// brush 12
+{
+( 1536 -640 128 ) ( 1536 -96 0 ) ( 1536 -96 128 ) paint/plasterwallbrown2 0 0 0 1 1
+( 1568 -640 128 ) ( 1536 -640 0 ) ( 1536 -640 128 ) paint/plasterwallbrown2 -32 0 0 1 1
+( 1568 -96 0 ) ( 1536 -640 0 ) ( 1568 -640 0 ) paint/plasterwallbrown2 -32 0 0 1 1
+( 1568 -96 224 ) ( 1536 -640 224 ) ( 1536 -96 224 ) paint/plasterwallbrown2 -32 0 0 1 1
+( 1568 64 128 ) ( 1536 64 0 ) ( 1568 64 0 ) paint/plasterwallbrown2 -32 0 0 1 1
+( 1568 -96 128 ) ( 1568 -640 0 ) ( 1568 -640 128 ) paint/plasterwallbrown2 0 0 0 1 1
+}
+// brush 13
+{
+( 704 32 128 ) ( 704 64 0 ) ( 704 64 128 ) paint/plasterwallbrown2 0 0 0 1 1
+( 1536 32 128 ) ( 704 32 0 ) ( 704 32 128 ) paint/plasterwallbrown2 0 0 0 1 1
+( 1536 64 0 ) ( 704 32 0 ) ( 1536 32 0 ) paint/plasterwallbrown2 0 0 0 1 1
+( 1536 64 224 ) ( 704 32 224 ) ( 704 64 224 ) paint/plasterwallbrown2 0 0 0 1 1
+( 1536 64 128 ) ( 704 64 0 ) ( 1536 64 0 ) paint/plasterwallbrown2 0 0 0 1 1
+( 1536 64 128 ) ( 1536 32 0 ) ( 1536 32 128 ) paint/plasterwallbrown2 0 0 0 1 1
+}
+// brush 14
+{
+( 704 -192 128 ) ( 704 32 0 ) ( 704 32 128 ) paint/plasterwallbrown2 0 0 0 1 1
+( 736 -192 128 ) ( 704 -192 0 ) ( 704 -192 128 ) paint/plasterwallbrown2 0 0 0 1 1
+( 736 32 0 ) ( 704 -192 0 ) ( 736 -192 0 ) paint/plasterwallbrown2 0 0 0 1 1
+( 736 32 160 ) ( 704 -192 160 ) ( 704 32 160 ) paint/plasterwallbrown2 0 0 0 1 1
+( 736 32 128 ) ( 704 32 0 ) ( 736 32 0 ) paint/plasterwallbrown2 0 0 0 1 1
+( 736 32 128 ) ( 736 -192 0 ) ( 736 -192 128 ) paint/plasterwallbrown2 0 0 0 1 1
+}
+// brush 15
+{
+( -64 -192 160 ) ( -64 384 128 ) ( -64 384 160 ) tile/tilefloor1 0 -64 0 1 1
+( 320 -192 160 ) ( -64 -192 128 ) ( -64 -192 160 ) tile/tilefloor1 0 -64 0 1 1
+( 320 384 128 ) ( -64 -192 128 ) ( 320 -192 128 ) tile/tilefloor1 0 0 0 1 1
+( 320 384 160 ) ( -64 -192 160 ) ( -64 384 160 ) tile/tilefloor1 0 0 0 1 1
+( 320 384 160 ) ( -64 384 128 ) ( 320 384 128 ) tile/tilefloor1 0 -64 0 1 1
+( 320 384 160 ) ( 320 -192 128 ) ( 320 -192 160 ) tile/tilefloor1 0 -64 0 1 1
+}
+// brush 16
+{
+( -64 -416 160 ) ( -64 -192 128 ) ( -64 -192 160 ) tile/tilefloor1 0 -64 0 1 1
+( 736 -416 160 ) ( -64 -416 128 ) ( -64 -416 160 ) tile/tilefloor1 0 -64 0 1 1
+( 736 -192 128 ) ( -64 -416 128 ) ( 736 -416 128 ) tile/tilefloor1 0 0 0 1 1
+( 736 -192 160 ) ( -64 -416 160 ) ( -64 -192 160 ) tile/tilefloor1 0 0 0 1 1
+( 736 -192 160 ) ( -64 -192 128 ) ( 736 -192 128 ) tile/tilefloor1 0 -64 0 1 1
+( 736 -192 160 ) ( 736 -416 128 ) ( 736 -416 160 ) paint/plasterwallbrown2 0 -64 0 1 1
+}
+// brush 17
+{
+( 736 64 256 ) ( 736 -288 448 ) ( 736 -288 416 ) tile/tilefloor1 0 0 0 1 1
+( 704 -288 448 ) ( 1568 -288 448 ) ( 1568 -288 416 ) tile/tilefloor1 0 0 0 1 1
+( 1568 -288 416 ) ( 1568 64 224 ) ( 704 64 224 ) tile/tilefloor1 0 0 0 1 1
+( 1568 -288 448 ) ( 704 -288 448 ) ( 704 64 256 ) tile/tilefloor1 0 0 0 1 1
+( 1568 64 224 ) ( 1568 64 256 ) ( 704 64 256 ) tile/tilefloor1 0 0 0 1 1
+( 1536 -288 448 ) ( 1536 64 256 ) ( 1536 64 224 ) tile/tilefloor1 0 0 0 1 1
+}
+// brush 18
+{
+( 736 -320 448 ) ( 736 -672 256 ) ( 736 -672 224 ) tile/tilefloor1 -96 0 180 1 -1
+( 704 -672 224 ) ( 704 -672 256 ) ( 1568 -672 256 ) tile/tilefloor1 -32 0 180 1 -1
+( 704 -320 448 ) ( 1568 -320 448 ) ( 1568 -672 256 ) tile/tilefloor1 -32 96 180 1 1
+( 704 -320 416 ) ( 704 -672 224 ) ( 1568 -672 224 ) tile/tilefloor1 -32 96 180 1 1
+( 1568 -320 448 ) ( 704 -320 448 ) ( 704 -320 416 ) tile/tilefloor1 -32 0 180 1 -1
+( 1536 -672 256 ) ( 1536 -320 448 ) ( 1536 -320 416 ) tile/tilefloor1 -96 0 180 1 -1
+}
+// brush 19
+{
+( 736 -320 448 ) ( 736 -288 416 ) ( 736 -288 448 ) tile/tilefloor1 0 0 0 1 1
+( 1568 -320 448 ) ( 704 -320 416 ) ( 704 -320 448 ) tile/tilefloor1 0 0 0 1 1
+( 1568 -288 416 ) ( 704 -320 416 ) ( 1568 -320 416 ) tile/tilefloor1 0 0 0 1 1
+( 1568 -288 448 ) ( 704 -320 448 ) ( 704 -288 448 ) tile/tilefloor1 0 0 0 1 1
+( 1568 -288 448 ) ( 704 -288 416 ) ( 1568 -288 416 ) tile/tilefloor1 0 0 0 1 1
+( 1536 -288 448 ) ( 1536 -320 416 ) ( 1536 -320 448 ) tile/tilefloor1 0 0 0 1 1
+}
+// brush 20
+{
+( 704 -672 448 ) ( 704 64 224 ) ( 704 64 448 ) paint/plasterwallbrown2 0 0 0 1 1
+( 736 -672 448 ) ( 704 -672 224 ) ( 704 -672 448 ) paint/plasterwallbrown2 0 0 0 1 1
+( 736 64 160 ) ( 704 -672 160 ) ( 736 -672 160 ) paint/plasterwallbrown2 0 0 0 1 1
+( 736 64 448 ) ( 704 -672 448 ) ( 704 64 448 ) paint/plasterwallbrown2 0 0 0 1 1
+( 736 64 448 ) ( 704 64 224 ) ( 736 64 224 ) paint/plasterwallbrown2 0 0 0 1 1
+( 736 64 448 ) ( 736 -672 224 ) ( 736 -672 448 ) paint/plasterwallbrown2 0 0 0 1 1
+}
+// brush 21
+{
+( 1536 -672 448 ) ( 1536 64 224 ) ( 1536 64 448 ) paint/plasterwallbrown2 0 0 0 1 1
+( 1568 -672 448 ) ( 1536 -672 224 ) ( 1536 -672 448 ) paint/plasterwallbrown2 0 0 0 1 1
+( 1568 64 224 ) ( 1536 -672 224 ) ( 1568 -672 224 ) paint/plasterwallbrown2 0 0 0 1 1
+( 1568 64 448 ) ( 1536 -672 448 ) ( 1536 64 448 ) paint/plasterwallbrown2 0 0 0 1 1
+( 1568 64 448 ) ( 1536 64 224 ) ( 1568 64 224 ) paint/plasterwallbrown2 0 0 0 1 1
+( 1568 64 448 ) ( 1568 -672 224 ) ( 1568 -672 448 ) paint/plasterwallbrown2 0 0 0 1 1
+}
+// brush 22
+{
+( 416 -288 -32 ) ( 416 -287 -32 ) ( 416 -288 -31 ) carpet/carpetfloorred 0 0 0 1 1
+( 272 -384 -32 ) ( 272 -384 -31 ) ( 273 -384 -32 ) carpet/carpetfloorred -80 0 0 1 1
+( 272 -288 -32 ) ( 273 -288 -32 ) ( 272 -287 -32 ) carpet/carpetfloorred -80 0 0 1 1
+( 656 -224 0 ) ( 656 -223 0 ) ( 657 -224 0 ) carpet/carpetfloorred -80 0 0 1 1
+( 656 -224 0 ) ( 657 -224 0 ) ( 656 -224 1 ) carpet/carpetfloorred -80 0 0 1 1
+( 736 -224 0 ) ( 736 -224 1 ) ( 736 -223 0 ) carpet/carpetfloorred 0 0 0 1 1
+}
+}
+// entity 1
+{
+"classname" "info_player_start"
+"origin" "0 0 43"
+}
+// entity 2
+{
+"classname" "SpotLight"
+"origin" "136 40 104"
+"color" "255 255 255 255"
+"cutoff" "0.5"
+"dir" "0 0 -1"
+"height" "128.0"
+"radius" "128"
+}
+// entity 3
+{
+"classname" "SpotLight"
+"origin" "408 -304 120"
+"color" "255 255 255 255"
+"cutoff" "0.2"
+"dir" "0 0 -1"
+"height" "128.0"
+"radius" "32"
+}
+// entity 4
+{
+"classname" "SpotLight"
+"origin" "248 -304 120"
+"color" "255 255 255 255"
+"cutoff" "0.2"
+"dir" "0 0 -1"
+"height" "128.0"
+"radius" "32"
+}
+// entity 5
+{
+"classname" "SpotLight"
+"origin" "568 -304 120"
+"color" "255 255 255 255"
+"cutoff" "0.2"
+"dir" "0 0 -1"
+"height" "128.0"
+"radius" "32"
+}
+// entity 6
+{
+"classname" "SpotLight"
+"origin" "88 -304 120"
+"color" "255 255 255 255"
+"cutoff" "0.2"
+"dir" "0 0 -1"
+"height" "128.0"
+"radius" "32"
+}
+// entity 7
+{
+"classname" "SpotLight"
+"origin" "728 -304 120"
+"color" "255 255 255 255"
+"cutoff" "0.2"
+"dir" "0 0 -1"
+"height" "128.0"
+"radius" "32"
+}
+// entity 8
+{
+"classname" "SpotLight"
+"origin" "984 -304 408"
+"color" "255 255 255 255"
+"cutoff" "0.2"
+"dir" "0 0 -1"
+"height" "512"
+"radius" "128"
+}
+// entity 9
+{
+"classname" "SpotLight"
+"origin" "1232 -304 408"
+"color" "255 255 255 255"
+"cutoff" "0.2"
+"dir" "0 0 -1"
+"height" "512"
+"radius" "128"
+}
+// entity 10
+{
+"classname" "AmbientLight"
+"color" "s"
+// brush 0
+{
+( -32 -192 48 ) ( -32 -48 0 ) ( -32 -48 48 ) __TB_empty 16 0 0 1 1
+( 16 -192 48 ) ( -32 -192 0 ) ( -32 -192 48 ) __TB_empty 0 0 0 1 1
+( 16 -48 0 ) ( -32 -192 0 ) ( 16 -192 0 ) __TB_empty 0 -16 0 1 1
+( 16 -48 128 ) ( -32 -192 128 ) ( -32 -48 128 ) __TB_empty 0 -16 0 1 1
+( 16 352 48 ) ( -32 352 0 ) ( 16 352 0 ) __TB_empty 0 0 0 1 1
+( 288 -48 48 ) ( 288 -192 0 ) ( 288 -192 48 ) __TB_empty 16 0 0 1 1
+}
+}

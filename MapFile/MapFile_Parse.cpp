@@ -112,6 +112,14 @@ MF_Lexeme* MF_ParseEntity(_In_ MF_Lexeme * lexemes, _Out_ MF_Entity * entity)
 		}
 		cursor = cursor->next;
 	}
+	for (int j = 0; j < 2 && cursor != NULL;)
+	{
+		if (cursor && cursor->lexeme[0] == '}')
+		{
+			j++;
+		}
+		cursor = cursor->next;
+	}
 
 	return cursor;
 }
@@ -262,7 +270,7 @@ int MF_CountEntities(_In_ MF_Lexeme* lexemes)
 	int depth = 0;
 	int total = 0;
 	MF_Lexeme* cursor = lexemes;
-	while (cursor != NULL)
+	while (cursor != NULL && depth >= 0)
 	{
 		if (cursor->lexeme[0] == '{')
 		{

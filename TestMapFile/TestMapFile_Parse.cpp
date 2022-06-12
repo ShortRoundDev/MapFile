@@ -77,7 +77,7 @@ namespace TestMapFile
 						Assert::AreEqual(-64.0f, brush.faces[0].facePoints[0].x);
 						Assert::AreEqual(-64.0f, brush.faces[0].facePoints[0].y);
 						Assert::AreEqual(-16.0f, brush.faces[0].facePoints[0].z);
-						Assert::AreEqual(0.0f, brush.faces[0].facePoints[0].w);
+						//Assert::AreEqual(0.0f, brush.faces[0].facePoints[0].w);
 
 						//face 1, texture
 						Assert::AreEqual("__TB_empty", brush.faces[0].texture);

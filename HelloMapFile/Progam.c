@@ -18,7 +18,7 @@ int main(int argc, char** argv)
 	MF_Init();
 
 	HANDLE file = CreateFile(
-		L"Data\\Weird.map",
+		L"Data\\OfficeTest.map",
 		GENERIC_READ,
 		FILE_SHARE_READ,
 		NULL,

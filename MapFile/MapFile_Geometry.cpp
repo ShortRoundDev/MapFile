@@ -28,8 +28,7 @@ typedef struct MF_FaceDTO {
 _Success_(return)
 BOOL _MF_GenerateFacesUnordered(
 	_In_ MF_Map_t * map,
-	_In_ std::map<std::string, std::vector<MF_FaceDTO>>*points,
-	_In_ MF_Vector3_t * centroid
+	_In_ std::map<std::string, std::pair<MF_Entity*, std::vector<MF_FaceDTO>>>*points
 );
 
 void MF_FixCrossedQuad(_In_ MF_FaceDTO * face);
@@ -78,19 +77,20 @@ BOOL MF_GenerateMesh(_In_ MF_Map_t* map, _Out_ MF_BrushDictionary* meshDictionar
 	}
 
 	//Each key is the name of the brush
-	std::map<std::string, std::vector<MF_FaceDTO>> unorderedBrushFaces;
-	MF_Vector3_t centroid = { 0, 0, 0 };	
-
+	std::map<std::string, std::pair<MF_Entity*, std::vector<MF_FaceDTO>>> unorderedBrushFaces;
 	// Convert all MF_Brushes into sets of polygon edges grouped by face
-	if (!_MF_GenerateFacesUnordered(map, &unorderedBrushFaces, &centroid)) {
+	if (!_MF_GenerateFacesUnordered(map, &unorderedBrushFaces)) {
 		return FALSE;
 	}
+	meshDictionary->totalBrushes = unorderedBrushFaces.size();
+	meshDictionary->brushes = (MF_MeshEntity*)MF_Alloc(sizeof(MF_MeshEntity) * meshDictionary->totalBrushes);
 
 	//meshes = (MF_Mesh*)MF_Alloc(sizeof(MF_Mesh) * unorderedBrushFaces.size());
 
 	int currentBrush = 0;
 	//debug
-	for (auto & brush : unorderedBrushFaces) {
+	for (auto brush : unorderedBrushFaces)
+	{
 
 		std::unordered_set<MF_Vector3_t, MF_VertexHasher> uniqueBrushVertices;
 		std::vector<MF_Vector3_t> orderedBrushVertices;
@@ -99,7 +99,7 @@ BOOL MF_GenerateMesh(_In_ MF_Map_t* map, _Out_ MF_BrushDictionary* meshDictionar
 		//CopyMemory((*meshes)[currentBrush].name, brush.first.c_str(), brush.first.length() + 1); // + 1 for null terminator
 		int triangle = 0;
 
-		for (auto & face : brush.second) {
+		for (auto & face : brush.second.second) {
 			if (face.points.size() > 3) {
 
 				// Simplify polygons
@@ -112,14 +112,34 @@ BOOL MF_GenerateMesh(_In_ MF_Map_t* map, _Out_ MF_BrushDictionary* meshDictionar
 				
 			}
 		}
+
+		MF_MeshEntity meshEnt = { 0 };
+		strcpy_s(meshEnt.name, brush.first.c_str());
+		meshEnt.totalMeshes = 1;
+		meshEnt.meshes = (MF_Mesh*)MF_Alloc(sizeof(MF_Mesh));
+		meshEnt.rawEntity = brush.second.first;
+		meshEnt.totalTextures = 0;
+		meshEnt.textures = NULL;
+
+		MF_Mesh mesh = { 0 };
+		mesh.vertices = (MF_MeshVertex*)MF_Alloc(uniqueBrushVertices.size() * sizeof(MF_MeshVertex));
+		mesh.totalVertices = uniqueBrushVertices.size();
+		int currentVertex = 0;
+		for (auto & vertex : uniqueBrushVertices)
+		{
+			mesh.vertices[currentVertex++].vertex = vertex;
+		}
+
+		meshEnt.meshes[0] = mesh;
+
+		meshDictionary->brushes[currentBrush++] = meshEnt;
+
 		/*(*meshes)[currentBrush].vertices = (MF_Vector3_t*)MF_Alloc(sizeof(MF_Vector3_t) * orderedBrushVertices.size());
 		(*meshes)[currentBrush].uv = (MF_Vector3_t*)MF_Alloc(sizeof(MF_Vector2_t) * orderedBrushVertices.size());
 		(*meshes)[currentBrush].indices = (MF_IndexedTriangle_t*)MF_Alloc(sizeof(MF_IndexedTriangle_t) * brushIndices.size());*/
 
 //		std::copy(orderedBrushVertices.begin(), orderedBrushVertices.end(), (*meshes)[currentBrush].vertices);
 	//	std::copy(brushIndices.begin(), brushIndices.end(), (*meshes)[currentBrush].indices);
-
-		currentBrush++;
 	}
 
 	return TRUE;
@@ -128,8 +148,7 @@ BOOL MF_GenerateMesh(_In_ MF_Map_t* map, _Out_ MF_BrushDictionary* meshDictionar
 _Success_(return)
 BOOL _MF_GenerateFacesUnordered(
 	_In_ MF_Map_t* map,
-	_In_ std::map<std::string, std::vector<MF_FaceDTO>>* brushes,
-	_In_ MF_Vector3_t* centroid
+	_In_ std::map<std::string, std::pair<MF_Entity*, std::vector<MF_FaceDTO>>>* brushes
 )
 {
 	int vertices = 0;
@@ -181,16 +200,13 @@ BOOL _MF_GenerateFacesUnordered(
 				faces[i].points = unique;
 
 				for (auto vertex : faces[i].points) {
-					*centroid = *centroid + vertex;
 					vertices++;
 				}
 			}
 
-			brushes->insert({ std::string(map->items[i].classname), faces });
+			brushes->insert({ std::string(map->items[i].classname) + "_" + std::to_string(j), std::make_pair(map->items + i, faces)});
 		}
 	}
-
-	*centroid = *centroid * (1.0f/((float)vertices));
 
 	return TRUE;
 }
