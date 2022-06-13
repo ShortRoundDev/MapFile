@@ -20,17 +20,13 @@ typedef struct MF_TextureParameters
 } MF_TextureParameters_t;
 
 
-/** \brief     A vector of 4 floats.
+/** \brief     A vector of 3 floats.
  * 
- *  \details   This was designed to be closely cast-able to other vec4
- *             representations. Though no face in the brush actually contains 4 components,
- *             this uses 4 for struct packing reasons. Additionally, many users in graphics
- *             environments tend to send float4s for everything (for both compatibility with
- *             transformation matrices as well as packing reasons). The last component is
- *             initialized to 0
+ *  \details   This was designed to be closely cast-able to other vec3
+ *             representations.
  *  
- *             The floats can be accessed by component (vector.x, vector.y, vector.z, vector.w)
- *             or through the comp array (vector.comp[0], vector.comp[1], etc.)
+ *             The floats can be accessed by component (vector.x, vector.y, vector.z)
+ *             or through the comp array (vector.comp[0], etc.)
  */
 typedef union MF_Vector3
 {
@@ -42,6 +38,37 @@ typedef union MF_Vector3
     };
     float comp[3]; // components
 } MF_Vector3_t;
+
+/** \brief     A vector of 4 floats.
+ *
+ *  \details   This was designed to be closely cast-able to other vec4
+ *             representations. Though no face in the brush actually contains 4 components,
+ *             this uses 4 for struct packing reasons. Additionally, many users in graphics
+ *             environments tend to send float4s for everything (for both compatibility with
+ *             transformation matrices as well as packing reasons).
+ *
+ *             The floats can be accessed by component (vector.x, vector.y, vector.z, vector.w)
+ *             or through the comp array (vector.comp[0], vector.comp[1], etc.)
+ */
+typedef union MF_Vector4
+{
+    struct // I think this is UB in C, but not C++
+    {
+        float x;
+        float y;
+        float z;
+        float w;
+    };
+    struct // I think this is UB in C, but not C++
+    {
+        float r;
+        float g;
+        float b;
+        float a;
+    };
+    float comp[4]; // components
+} MF_Vector4_t;
+
 
 /** \brief      A face computed from the intersections of the MF_Faces */
 typedef struct MF_GeoFace

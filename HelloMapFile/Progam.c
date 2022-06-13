@@ -50,6 +50,9 @@ int main(int argc, char** argv)
 		return;
 	}
 
+	MF_Vector3_t vec;
+	MF_GetAttributeVec3(map.items, "origin", &vec);
+
 	free(mapText);
 	MF_DestroyMap(&map);
 

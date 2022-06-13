@@ -9,6 +9,7 @@
 #include "MapFile_System.h"
 #include "MapFile_Types.h"
 #include "MapFile_List.h"
+#include "MapFile_Geometry.h"
 
 // Have to #define in C because you can't | a const with another const. Has to be known at runtime (constexpr or #define)
 // This is probably a bad solution and I welcome contribution
@@ -35,6 +36,29 @@ CONSTEXPR char MF_PARSE_REACHED_END_MSG[] = "Reached end of document while parsi
 
 CONSTEXPR uint32_t MF_PARSE_MISALIGNED_ENT_CODE = MF_PARSE_ERR | 0x06;
 CONSTEXPR char MF_PARSE_MISALIGNED_ENT_MSG[] = "Expected { while parsing ent";
+
+
+_Success_(return)
+DLL BOOL MF_ParseVec3(_In_ const char* text, _Out_ MF_Vector3_t * vec3);
+
+_Success_(return)
+DLL BOOL MF_ParseVec4(_In_ const char* text, _Out_ MF_Vector4_t * vec4);
+
+_Success_(return)
+DLL BOOL MF_ParseFloat(_In_ const char* text, _Out_ float* number);
+
+DLL MF_KeyValuePair_t* MF_GetAttribute(_In_ MF_Entity_t * entity, _In_ const char* key);
+
+DLL char* MF_GetAttributeValue(_In_ MF_Entity_t * entity, _In_ const char* key);
+
+_Success_(return)
+DLL BOOL MF_GetAttributeVec3(_In_ MF_Entity_t * entity, _In_ const char* key, _Out_ MF_Vector3_t * vec3);
+
+_Success_(return)
+DLL BOOL MF_GetAttributeVec4(_In_ MF_Entity_t * entity, _In_ const char* key, _Out_ MF_Vector4_t * vec4);
+
+_Success_(return)
+DLL BOOL MF_GetAttributeFloat(_In_ MF_Entity_t * entity, _In_ const char* key, _Out_ float* number);
 
 /** \brief            Parses the text of a mapfile into its relevant MF_Map structs. This runs allocations every step of the way.
  *                    If there is an error in parsing, this returns false and an error code is set. The developer can get error
@@ -131,3 +155,5 @@ PRIVATE BOOL MF_DestroyKeyValuePair(_In_ MF_KeyValuePair_t* kvp);
 PRIVATE BOOL MF_DestroyBrush(_In_ MF_Brush_t* brush);
 
 PRIVATE BOOL MF_DestroyFace(_In_ MF_Face_t* face);
+
+PRIVATE BOOL MF_ParseVecN(_In_ const char* text, size_t n, _Out_ float* vecN);

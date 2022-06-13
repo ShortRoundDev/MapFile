@@ -2,6 +2,7 @@
 
 #include "MapFile_Lex.h"
 
+#include <string>
 #include <cctype>
 #include <iostream>
 #include <math.h>
@@ -373,4 +374,138 @@ BOOL MF_DestroyBrush(_In_ MF_Brush_t* brush) {
 BOOL MF_DestroyFace(_In_ MF_Face_t* face) {
 	MF_Free(face->texture);
 	return TRUE;
+}
+
+BOOL MF_ParseVecN(_In_ const char* text, size_t n, _Out_ float* vecN)
+{
+	std::string vecStr = std::string(text);
+	size_t next = 0;
+	size_t nextRel = 0;
+	for (int i = 0; i < n; i++)
+	{
+		float numb = 0.0f;
+		try
+		{
+			numb = std::stof(vecStr.substr(next), &nextRel);
+			next += nextRel;
+		}
+		catch (std::invalid_argument ia)
+		{
+			return FALSE;
+		}
+		catch (std::out_of_range oor)
+		{
+			return FALSE;
+		}
+		vecN[i] = numb;
+		if (next >= vecStr.size() && i < n - 1)
+		{
+			return FALSE;
+		}
+	}
+	return TRUE;
+
+}
+
+_Success_(return)
+BOOL MF_ParseVec3(_In_ char* text, _Out_ MF_Vector3_t* vec3)
+{
+	return MF_ParseVecN(text, 3, vec3->comp);
+}
+
+_Success_(return)
+BOOL MF_ParseVec4(_In_ const char* text, _Out_ MF_Vector4_t * vec4)
+{
+	return MF_ParseVecN(text, 4, vec4->comp);
+}
+
+_Success_(return)
+BOOL MF_ParseFloat(_In_ char* text, _Out_ float* number)
+{
+	std::string vecStr = std::string(text);
+	try
+	{
+		*number = std::stof(vecStr);
+	}
+	catch (std::invalid_argument ia)
+	{
+		return FALSE;
+	}
+	catch (std::out_of_range oor)
+	{
+		return FALSE;
+	}
+	return TRUE;
+}
+
+MF_KeyValuePair* MF_GetAttribute(_In_ MF_Entity_t* entity, _In_ const char* key)
+{
+	if (entity == NULL)
+	{
+		return NULL;
+	}
+	for (int i = 0; i < entity->totalAttributes; i++)
+	{
+		if (!strcmp(key, entity->attributes[i].key))
+		{
+			return &(entity->attributes[i]);
+		}
+	}
+	return NULL;
+}
+
+char* MF_GetAttributeValue(_In_ MF_Entity_t* entity, _In_ const char* key)
+{
+	MF_KeyValuePair* kvp = MF_GetAttribute(entity, key);
+	if (kvp == NULL)
+	{
+		return NULL;
+	}
+	return kvp->value;
+}
+
+_Success_(return)
+BOOL MF_GetAttributeVec3(_In_ MF_Entity_t* entity, _In_ const char* key, _Out_ MF_Vector3_t* vec3)
+{
+	if (vec3 == NULL)
+	{
+		return FALSE;
+	}
+	char* value = MF_GetAttributeValue(entity, key);
+	if (value == NULL)
+	{
+		return FALSE;
+	}
+	return MF_ParseVec3(value, vec3);
+}
+
+_Success_(return)
+BOOL MF_GetAttributeVec4(_In_ MF_Entity_t* entity, _In_ const char* key, _Out_ MF_Vector4_t* vec4)
+{
+	if (vec4 == NULL)
+	{
+		return FALSE;
+	}
+	char* value = MF_GetAttributeValue(entity, key);
+	if (value == NULL)
+	{
+		return FALSE;
+	}
+	return MF_ParseVec4(value, vec4);
+}
+
+
+_Success_(return)
+BOOL MF_GetAttributeFloat(_In_ MF_Entity_t* entity, _In_ const char* key, _Out_ float* number)
+{
+	if (number == NULL)
+	{
+		return FALSE;
+	}
+	char* value = MF_GetAttributeValue(entity, key);
+	if (value == NULL)
+	{
+		return FALSE;
+	}
+	return MF_ParseFloat(value, number);
 }
