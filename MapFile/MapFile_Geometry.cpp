@@ -152,6 +152,7 @@ BOOL _MF_GenerateFacesUnordered(
 )
 {
 	int vertices = 0;
+	int id = 0;
 	for (int i = 0; i < map->totalItems; i++) {
 		for (int j = 0; j < map->items[i].totalBrushes; j++) {
 
@@ -204,7 +205,7 @@ BOOL _MF_GenerateFacesUnordered(
 				}
 			}
 
-			brushes->insert({ std::string(map->items[i].classname) + "_" + std::to_string(j), std::make_pair(map->items + i, faces)});
+			brushes->insert({ std::string(map->items[i].classname) + "_" + std::to_string(j) + "::" + std::to_string(id++), std::make_pair(map->items + i, faces)});
 		}
 	}
 

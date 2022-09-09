@@ -381,6 +381,7 @@ BOOL MF_ParseVecN(_In_ const char* text, size_t n, _Out_ float* vecN)
 	std::string vecStr = std::string(text);
 	size_t next = 0;
 	size_t nextRel = 0;
+
 	for (int i = 0; i < n; i++)
 	{
 		float numb = 0.0f;

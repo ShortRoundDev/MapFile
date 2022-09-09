@@ -163,11 +163,14 @@ size_t MF_LexWhitespacePaddedString(_In_ char* string)
 }
 
 BOOL MF_DestroyLexChain(_In_ MF_Lexeme_t* lexemeChain) {
-    if (lexemeChain == NULL) {
-        return TRUE;
+
+    MF_Lexeme* cursor = lexemeChain;
+    while (cursor != NULL)
+    {
+        auto next = cursor->next;
+        MF_Free(cursor);
+        cursor = next;
     }
-    MF_DestroyLexChain(lexemeChain->next);
-    MF_Free(lexemeChain);
     return TRUE;
 }
 
