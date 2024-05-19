@@ -100,17 +100,16 @@ BOOL MF_GenerateMesh(_In_ MF_Map_t* map, _Out_ MF_BrushDictionary* meshDictionar
 		int triangle = 0;
 
 		for (auto & face : brush.second.second) {
-			if (face.points.size() > 3) {
-
+			if (face.points.size() > 3)
+			{
 				// Simplify polygons
 				MF_FixCrossedQuad(&face);
-				// Re-orient to ccw
-				MF_FixOrientation(&face);
-				//MF_UVMapFace
-				// Triangulate
-				MF_TriangulateFace(&face, &uniqueBrushVertices, &orderedBrushVertices, &brushIndices);
-				
 			}
+			// Re-orient to ccw
+			MF_FixOrientation(&face);
+			//MF_UVMapFace
+			// Triangulate
+			MF_TriangulateFace(&face, &uniqueBrushVertices, &orderedBrushVertices, &brushIndices);	
 		}
 
 		MF_MeshEntity meshEnt = { 0 };
@@ -130,10 +129,18 @@ BOOL MF_GenerateMesh(_In_ MF_Map_t* map, _Out_ MF_BrushDictionary* meshDictionar
 			mesh.vertices[currentVertex++].vertex = vertex;
 		}
 
+		mesh.totalIndices = brushIndices.size() * 3;
+		mesh.indices = (UINT*)MF_Alloc(sizeof(UINT) * mesh.totalIndices);
+		int currentIndex = 0;
+		for (int i = 0; i < brushIndices.size(); i++) {
+			mesh.indices[currentIndex++] = brushIndices[i].a;
+			mesh.indices[currentIndex++] = brushIndices[i].b;
+			mesh.indices[currentIndex++] = brushIndices[i].c;
+		}
+
 		meshEnt.meshes[0] = mesh;
 
 		meshDictionary->brushes[currentBrush++] = meshEnt;
-
 		/*(*meshes)[currentBrush].vertices = (MF_Vector3_t*)MF_Alloc(sizeof(MF_Vector3_t) * orderedBrushVertices.size());
 		(*meshes)[currentBrush].uv = (MF_Vector3_t*)MF_Alloc(sizeof(MF_Vector2_t) * orderedBrushVertices.size());
 		(*meshes)[currentBrush].indices = (MF_IndexedTriangle_t*)MF_Alloc(sizeof(MF_IndexedTriangle_t) * brushIndices.size());*/

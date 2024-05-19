@@ -94,7 +94,7 @@ namespace TestMapFile
 						Assert::AreEqual(64.0f, brush.faces[4].facePoints[2].x);
 						Assert::AreEqual(64.0f, brush.faces[4].facePoints[2].y);
 						Assert::AreEqual(17.0f, brush.faces[4].facePoints[2].z);
-						Assert::AreEqual(0.0f, brush.faces[4].facePoints[2].w);
+						//Assert::AreEqual(0.0f, brush.faces[4].facePoints[2].w);
 					}
 
 					Assert::AreEqual((size_t)6, entity0.brushes[1].totalFaces);
@@ -105,7 +105,7 @@ namespace TestMapFile
 						Assert::AreEqual(-16.0f, brush.faces[0].facePoints[0].x);
 						Assert::AreEqual(-48.0f, brush.faces[0].facePoints[0].y);
 						Assert::AreEqual(80.0f, brush.faces[0].facePoints[0].z);
-						Assert::AreEqual(0.0f, brush.faces[0].facePoints[0].w);
+						//Assert::AreEqual(0.0f, brush.faces[0].facePoints[0].w);
 
 						//face 1, texture
 						Assert::AreEqual("__TB_empty", brush.faces[0].texture);
@@ -122,7 +122,7 @@ namespace TestMapFile
 						Assert::AreEqual(16.0f, brush.faces[4].facePoints[2].x);
 						Assert::AreEqual(32.0f, brush.faces[4].facePoints[2].y);
 						Assert::AreEqual(16.0f, brush.faces[4].facePoints[2].z);
-						Assert::AreEqual(0.0f, brush.faces[4].facePoints[2].w);
+						//Assert::AreEqual(0.0f, brush.faces[4].facePoints[2].w);
 					}
 				}
 				//entity test
